@@ -372,18 +372,18 @@
 
       
         
-          
-            <p>​    受苏铭和蓝莓的影响，最近开始学习Python，下面是走过的坑，吐槽正式开始</p>
+          <p>​    受苏铭和蓝莓的影响，最近开始学习Python，下面是走过的坑，吐槽正式开始</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>Python官网慢的我想吐，几次都没有下下来，最后是在一次中午时分用手机流量定位了下载的地方，然后直接在电脑上手动输入长达30字符的网址直接下载，然后网速“飞快”，终于下下来了26M<a href="./python-3.8.2-amd64.exe">windows 64 位Python3.8.2</a>。然后就是用pip安装各种包，然后安装的时候真的是一头包，各种报错，各种而且奇慢无比，我吐了。后来终于找到解决方案：引用豆瓣源，其他源也行。</p>
 <p><code>pip install numpy -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com</code></p>
 <p><code>pip install wxPython -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com</code></p>
 <p>安装好一些必要的包之后就可以跑程序了。</p>
-<h3 id="简单的终端python程序示例"><a href="#简单的终端python程序示例" class="headerlink" title="简单的终端python程序示例"></a>简单的终端python程序示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># score.py</span></span><br><span class="line">tmp = input(<span class="string">'苏铭的Python分数：'</span>)</span><br><span class="line"><span class="keyword">if</span> tmp.isdigit():</span><br><span class="line">	score = int(tmp)</span><br><span class="line">	<span class="keyword">if</span> score &gt; <span class="number">100</span>:</span><br><span class="line">	    print(<span class="string">'我信了你的鬼话'</span>)</span><br><span class="line">	<span class="keyword">elif</span> score &gt;=<span class="number">60</span>:</span><br><span class="line">		print(<span class="string">'可以呀苏铭'</span>)</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		print(<span class="string">'菜的呀苏铭'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	print(<span class="string">'你输入的是什么鬼哦'</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="简单的GUI-python-程序示例"><a href="#简单的GUI-python-程序示例" class="headerlink" title="简单的GUI python 程序示例"></a>简单的GUI python 程序示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hello.py</span></span><br><span class="line"><span class="keyword">import</span>	wx</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Frame1</span><span class="params">(wx.Frame)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, superior)</span>:</span></span><br><span class="line">		wx.Frame.__init__(self, parent= superior, title = <span class="string">'Example'</span>,pos = (<span class="number">400</span>,<span class="number">200</span>),size=(<span class="number">350</span>,<span class="number">500</span>))</span><br><span class="line">		panel = wx.Panel(self)</span><br><span class="line">		text1 = wx.TextCtrl(panel,value = <span class="string">'Hello'</span>,pos = (<span class="number">250</span>,<span class="number">300</span>))</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	app = wx.App()</span><br><span class="line">	frame = Frame1(<span class="literal">None</span>)</span><br><span class="line">	frame.Show(<span class="literal">True</span>)</span><br><span class="line">	app.MainLoop()</span><br></pre></td></tr></table></figure>
-
-<h3 id="To-be-Continue"><a href="#To-be-Continue" class="headerlink" title="To be Continue."></a>To be Continue.</h3>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/02/26/python-learning/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
