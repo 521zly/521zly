@@ -114,7 +114,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/02/26/python-learning/IDE.png">
 <meta property="article:published_time" content="2020-02-26T11:03:28.000Z">
-<meta property="article:modified_time" content="2020-02-27T11:54:18.395Z">
+<meta property="article:modified_time" content="2020-02-27T13:00:29.257Z">
 <meta property="article:author" content="茶茶白">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -409,7 +409,7 @@
 <li>设计流程图和代码框架</li>
 <li>Coding</li>
 </ol>
-<p>本来就不会写，学习了leetcode](<a href="https://leetcode-cn.com/circle/article/gy4iKU/)上的代码后，制作了青春（~~阉割~~）版的爬取lol所有壁纸到当前文件夹的lolIamge文件夹中，代码如下" target="_blank" rel="noopener">https://leetcode-cn.com/circle/article/gy4iKU/)上的代码后，制作了青春（~~阉割~~）版的爬取lol所有壁纸到当前文件夹的lolIamge文件夹中，代码如下</a></p>
+<p>本来就不会写，学习了 <a href="https://leetcode-cn.com/circle/article/gy4iKU/" target="_blank" rel="noopener">leetcode</a> 上的代码后，制作了青春（<del>阉割</del>）版的爬取lol所有壁纸到当前文件夹的 lolIamge 文件夹中，代码如下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> urllib.request <span class="keyword">as</span> urlrequest</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getimage</span><span class="params">(heroID)</span>:</span></span><br><span class="line">	heroId = str(heroID)</span><br><span class="line">	url = <span class="string">'https://game.gtimg.cn/images/lol/act/img/skin/big'</span> + heroId</span><br><span class="line">	heroDir = <span class="string">r'lolImage\\'</span> + heroId</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">not</span> os.path.exists(heroDir)):	os.mkdir(heroDir)</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>): </span><br><span class="line">		heroEnd = <span class="string">'0'</span> + str(i//<span class="number">10</span>) + str(i%<span class="number">10</span>) + <span class="string">'.jpg'</span></span><br><span class="line">		<span class="keyword">try</span>:</span><br><span class="line">			image = urlrequest.urlopen(url + heroEnd).read()</span><br><span class="line">		<span class="keyword">except</span>:	<span class="keyword">break</span></span><br><span class="line">		imageName = heroDir + <span class="string">r'\\'</span> + heroEnd</span><br><span class="line">		<span class="keyword">with</span> open(imageName, <span class="string">'wb'</span>) <span class="keyword">as</span> f:	f.write(image)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">not</span> os.path.exists(<span class="string">'lolImage'</span>)):	os.mkdir(<span class="string">'lolImage'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">1000</span>):	getimage(i)</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -421,7 +421,7 @@
 <h3 id="datetime-包学习（哈哈哈）"><a href="#datetime-包学习（哈哈哈）" class="headerlink" title="datetime 包学习（哈哈哈）"></a>datetime 包学习（哈哈哈）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line">now = datetime.datetime.now()</span><br><span class="line">day = now - datetime.datetime(<span class="number">2019</span>,<span class="number">10</span>,<span class="number">20</span>)</span><br><span class="line">print(<span class="string">'喜欢茶茶子妹妹的第'</span>+str(day.days)+<span class="string">'天'</span>)</span><br></pre></td></tr></table></figure>
 
 <h3 id="日常表白zly"><a href="#日常表白zly" class="headerlink" title="日常表白zly"></a>日常表白zly</h3><blockquote>
-<p>last update:  2020年2月27日19:53:07</p>
+<p>last update:  2020年2月27日21:00:28</p>
 </blockquote>
 
       
