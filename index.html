@@ -372,20 +372,15 @@
 
       
         
-          
-            <h3 id="把图片变成数据"><a href="#把图片变成数据" class="headerlink" title="把图片变成数据"></a>把图片变成数据</h3><p>有时程序需要加载本地图片，然后打包的时候就很不方便，所以wxPython支持img2png.py、img2py.py、img2xpm.py等工具来支持这种操作，但是我调用的时候一直出错，在网上查了很多方式最后找到了解决方案：</p>
+          <h3 id="把图片变成数据"><a href="#把图片变成数据" class="headerlink" title="把图片变成数据"></a>把图片变成数据</h3><p>有时程序需要加载本地图片，然后打包的时候就很不方便，所以wxPython支持img2png.py、img2py.py、img2xpm.py等工具来支持这种操作，但是我调用的时候一直出错，在网上查了很多方式最后找到了解决方案：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># imageToBite.py</span></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'dna049.png'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">	bData = base64.b64encode(f.read())</span><br><span class="line">	pData = bData.decode()</span><br><span class="line">	print(pData)</span><br></pre></td></tr></table></figure>
-
-<p>这段代码就是把图片变成数据bite。 相应的修改图片就可以换着用了，如果很多就批处理自己照样写。</p>
-<p>然后在命令行执行</p>
-<p><code>py imageToBite.py &gt; a.txt</code></p>
-<p>就可以把数据存下来，然后复制到下面程序的data中就行了。</p>
-<p><strong>然后在wxPython框架下</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> wx.lib.embeddedimage <span class="keyword">import</span> PyEmbeddedImage</span><br><span class="line">bitmap = PyEmbeddedImage(data).GetBitmap()</span><br></pre></td></tr></table></figure>
-
-<p>就可以了</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/02/29/imageToBite/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
