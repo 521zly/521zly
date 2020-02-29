@@ -114,7 +114,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/02/26/python-learning/IDE.png">
 <meta property="article:published_time" content="2020-02-26T11:03:28.000Z">
-<meta property="article:modified_time" content="2020-02-28T20:22:39.086Z">
+<meta property="article:modified_time" content="2020-02-29T04:28:50.250Z">
 <meta property="article:author" content="茶茶白">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -423,7 +423,7 @@
 <p>python 处理字符串的 <code>split</code> 函数强的不行，给爬虫提供了特别便利的条件</p>
 </blockquote>
 <h3 id="打包成可执行文件（-exe）"><a href="#打包成可执行文件（-exe）" class="headerlink" title="打包成可执行文件（.exe）"></a>打包成可执行文件（.exe）</h3><p> 最简单的方法： pip安装pyinstaller (借助豆瓣源，见安装段落)，然后执行</p>
-<p><code>pyinstaller -f example.py</code></p>
+<p><code>pyinstaller -F example.py</code></p>
 <p>问题是，一个几kb的python程序，打包就10多M。。。这谁顶得住啊，<a href="https://www.zhihu.com/question/281858271" target="_blank" rel="noopener">解决方案</a> </p>
 <h3 id="datetime-包学习（哈哈哈）"><a href="#datetime-包学习（哈哈哈）" class="headerlink" title="datetime 包学习（哈哈哈）"></a>datetime 包学习（哈哈哈）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line">now = datetime.datetime.now()</span><br><span class="line">day = now - datetime.datetime(<span class="number">2019</span>,<span class="number">10</span>,<span class="number">20</span>)</span><br><span class="line">print(<span class="string">'喜欢茶茶子妹妹的第'</span>+str(day.days)+<span class="string">'天'</span>)</span><br></pre></td></tr></table></figure>
 
