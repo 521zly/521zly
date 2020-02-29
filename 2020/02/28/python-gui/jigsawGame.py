@@ -1,14 +1,14 @@
 # jigsawGame.py writed by dna049(茶茶白) at 2020/2/28
 import wx
 import os
-import urllib.request as urlrequest
+import base64
 from datetime import *
 from random import randint
-
-from 
+import urllib.request as urlrequest
 
 import tkinter as tk             #用于选择文件夹
 from tkinter import filedialog
+from wx.lib.embeddedimage import PyEmbeddedImage
 
 class jigsawGame(wx.Frame):
     def __init__(self, *args, **kw):
@@ -20,37 +20,29 @@ class jigsawGame(wx.Frame):
         self.order = [i for i in range(9)]
         self.eB = 8
         self.pnl = wx.Panel(parent = self, style = wx.BORDER_NONE)
-        welcome1 = wx.StaticText(self.pnl, pos=(20,521), \
-            label = '欢迎来到我的博客： ')
-        blog1 = wx.StaticText(self.pnl, pos = (190,521),
-            label = r'dna049.com')
-        blog1.SetForegroundColour('pink')
-        welcome2 = wx.StaticText(self.pnl, pos=(440,521), \
-            label = '老博客： ')
-        blog2 = wx.StaticText(self.pnl, pos = (521,521),
-            label = r'521zyl.github.io')
-        blog2.SetForegroundColour('pink')
-        self.hint = wx.StaticText(self.pnl, pos=(720,20), \
-            label = '操作：\n上下左右\nWASD', \
-            style = wx.ALIGN_CENTER)
-        font = blog1.GetFont()
+        welcome = wx.StaticText(self.pnl, pos=(20,520), \
+            label = '欢迎来到我的博客:\n新博客:', \
+            style = wx.ALIGN_RIGHT)
+        blog = wx.StaticText(self.pnl, pos = (180,520),
+            label = 'dna049.com\n521zyl.github.io')
+        blog.SetForegroundColour('pink')
+        font = blog.GetFont()
         font.PointSize += 2
         font = font.Bold()
+        welcome.SetFont(font)
+        blog.SetFont(font)
+
+        self.hint = wx.StaticText(self.pnl, pos=(710,20), \
+            label = '操作：\n上下左右\nWASD\n\n\n\n\n\n 注意聚焦\n 当前窗口', \
+            style = wx.ALIGN_CENTER)
         self.hint.SetFont(font)
         self.hint.SetForegroundColour('pink')
         self.hint.Hide()
 
-        font.PointSize += 3
-        welcome1.SetFont(font)  
-        welcome2.SetFont(font)
-        blog1.SetFont(font)
-        blog2.SetFont(font)
-        
-
         self.st = wx.StaticText(self.pnl, pos =(200,200), \
             label = '鼠标点击空白处\n选择一个照片来玩拼图吧', \
             style = wx.ALIGN_CENTER)
-        font.PointSize += 10
+        font.PointSize += 16
         self.font = font.Bold()
         self.st.SetFont(self.font)
         self.st.SetForegroundColour('red')
@@ -58,13 +50,18 @@ class jigsawGame(wx.Frame):
         self.pnl.Bind(wx.EVT_LEFT_DOWN, self.on_left_down)
         self.pnl.Bind(wx.EVT_KEY_DOWN, self.OnKeyDown)
 
-        url = 'https://521zly.github.io/2020/02/26/python-learning/yes.png'
-
     def myFile(self):
         chooseFile = tk.Tk()
         chooseFile.withdraw()
         fileName = filedialog.askopenfilename()
         return fileName
+
+    def onlineFile(self):
+        url = 'https://521zly.github.io/2020/02/28/python-gui/yes.png'
+        image = urlrequest.urlopen(url).read()
+        bData = base64.b64encode(image)
+        pData = bData.decode()
+        self.urlYes = PyEmbeddedImage(pData).GetBitmap()
 
     def writeFile(self):
         im = wx.Image(self.fileName).ConvertToBitmap()
@@ -108,6 +105,7 @@ class jigsawGame(wx.Frame):
     def run(self):
         if(not self.fileLoad):
             self.fileLoad = True
+            self.onlineFile()
             self.writeFile()
             self.disorder()
             self.pnl.Layout()
@@ -143,10 +141,7 @@ class jigsawGame(wx.Frame):
 
     def isFinish(self):
         if self.order == [i for i in range(9)]:
-            self.yes = wx.StaticText(self.pnl, pos =(600,400), \
-            label = '拼图成功',style=wx.ALIGN_CENTER)
-            self.yes.SetFont(self.font)
-            self.yes.SetForegroundColour('pink')
+            wx.StaticBitmap(parent = self.pnl, bitmap = self.urlYes, pos=(500,300))
             return True
         else:   return False
 
