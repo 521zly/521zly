@@ -372,7 +372,15 @@
 
       
         
-          <h3 id="GUI的共性"><a href="#GUI的共性" class="headerlink" title="GUI的共性"></a>GUI的共性</h3><p>其实任何语言的GUI都是类似的，基本就是使用操作系统提供的窗口API接口，然后就是时间响应机制，这样就导致了语言特点其实用的特别少，然后真正开发都是使用别人的引擎，例如C++ 开发就会用到 cocos2d， Unity 等（5年前去游戏公司实习过），还有 MATLAB 的GUI开发是真的方便，框架设计特别简单，添加按钮什么的拖拽就可以了，还有就是添加响应函数的时候右键就可以自动帮你定位到要写响应函数的地方，简直就是神器。好了废话不多说了，学习python的GUI 设计，选的是 wxPython 和pygame。学习两个库的一些基本操作，然后分别用两种包写拼图游戏。</p>
+          <blockquote>
+<p>一定要先写逻辑代码，再写用户界面代码</p>
+<p>多用help和dir查阅详细的函数或者类说明</p>
+</blockquote>
+<h3 id="GUI的共性"><a href="#GUI的共性" class="headerlink" title="GUI的共性"></a>GUI的共性</h3><blockquote>
+<p> 好读不好写！！！，因为一看类名函数名就知道每行代码是干嘛的，但是因为大小写还有单词选择可选的很多， 所以一定要配置  <strong>代码补全！！！</strong></p>
+</blockquote>
+<p>其实任何语言的GUI都是类似的，基本就是使用操作系统提供的窗口API接口，然后就是时间响应机制，这样就导致了语言特点其实用的特别少，然后真正开发都是使用别人的引擎。</p>
+<p>例如C++ 开发就会用到 cocos2d， Unity 等（5年前去游戏公司实习过），还有 MATLAB 的GUI开发是真的方便，框架设计特别简单，添加按钮什么的拖拽就可以了，还有就是添加响应函数的时候右键就可以自动帮你定位到要写响应函数的地方，简直就是神器。好了废话不多说了，学习python的GUI 设计，选的是 wxPython 和pygame。学习两个库的一些基本操作，然后分别用两种包写拼图游戏。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/02/28/python-gui/#more" rel="contents">
@@ -498,6 +506,9 @@
       
         
           <p>​    在苏铭和蓝莓带领下，最近开始学习Python，下面是走过的坑，吐槽正式开始</p>
+<blockquote>
+<p>Python在代码书写上要求极高，所有很多时候代码复制过来报错。。还有代码区分空格和Tab</p>
+</blockquote>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>Python官网慢的我想吐，几次都没有下下来，最后是在一次中午时分用手机流量定位了下载的地方，然后直接在电脑上手动输入长达30字符的网址（带文件名）直接下载，然后网速“飞快”，终于下下来了26M的windows 64 位Python3.8.2。然后就是用pip安装各种包，然后安装的时候真的是一头包，各种报错，各种而且奇慢无比，我吐了。后来终于找到解决方案：引用豆瓣源（其他源也行）。例子如下：</p>
 <p><code>pip install numpy -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com</code></p>
 <p><code>pip install wxPython -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com</code></p>
