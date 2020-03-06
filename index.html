@@ -939,6 +939,298 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/cayleyHamiltonTheorem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="茶茶白">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="521zly">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/cayleyHamiltonTheorem/" itemprop="url">
+                  Cayley-Hamilton定理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-16T12:37:33+08:00">
+                2015-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>大一学了矩阵之后,一直很喜欢它，因为它形式简洁优美，又不缺乏技巧，是抽象和具体的桥梁，又有其实用性，成为现代数学最基础的工具之一。个人认为，矩阵中最优美的定理非Cayley-Hamilton定理（矩阵的特征多项式是它的一个化零多项式）莫属了。</p>
+<blockquote>
+<p>交换环上的矩阵都有Cayley-Hamilton定理成立</p>
+</blockquote>
+<p>详细表述和证明如下：</p>
+<script type="math/tex; mode=display">
+\phi(\lambda)=det(\lambda I - A) = a_n \lambda^n + \cdots + a_1 \lambda + a_0</script><p>设$\lambda I - A$的伴随矩阵为$B$，则$B$中元素为关于$\lambda$的次数小于$n$的多项式，不妨设</p>
+<script type="math/tex; mode=display">
+B = \lambda^{n-1} B_ {n-1} + \cdots + \lambda B_1 + B_0</script><p>所以</p>
+<script type="math/tex; mode=display">
+(\lambda I - A)B = \lambda^n B_ {n-1} + \lambda^{n-1} (B_ {n-2} - AB_ {n-1})
++ \cdots + \lambda (B_0 - AB_1) - AB_0</script><p>又因为B是A的伴随矩阵，我们有 $ (\lambda I - A)B = det(\lambda I - A) $</p>
+<p>比较系数得到：</p>
+<script type="math/tex; mode=display">
+\left\{ 
+\begin{array}{l} 
+B_ {n-1} = a_n I \\
+B_ {n-2} - AB_ {n-1} = a_{n-1} I \\
+\cdots \\
+B_0 - AB_1 = a_1 I \\
+-AB_0 = a_0 I
+\end{array} \right.</script><p>对上式分别左乘$ A^n,A^{n-1},\cdots,A,I$得到：</p>
+<script type="math/tex; mode=display">
+\left\{ 
+\begin{array}{l} 
+A^n B_ {n-1} = a_n A^n \\
+A^{n-1} B_ {n-2} - A^n B_ {n-1} = a_{n-1} A^{n-1} \\
+\cdots \\
+A B_0 - A^2 B_1 = a_1 A \\
+-AB_0 = a_0 I
+\end{array} \right.</script><p>再将上式相加得到最终结果</p>
+<script type="math/tex; mode=display">
+\phi(A)= a_ n A^n + a_{n-1} A^{n-1} + \cdots + a_1 A +
+a_0 I = \mathbf{0}</script><p>上述定理优美在于从形式上，$\phi(\lambda)=det(\lambda I - A)$ 取 $\lambda = A$ 带入恰好也是0（注意数字0和零矩阵的差别）<strong>虽然说这样做是完全没有道理</strong>。作为直接推论我们知道，一个n阶方阵的任何次方都可以被它的不超过n次的幂线性表出。</p>
+<blockquote>
+<p>Last update: 2020年3月6日23:59:27</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/exampleOfFunctionOnlyContinueAtOnePoint/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="茶茶白">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="521zly">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/exampleOfFunctionOnlyContinueAtOnePoint/" itemprop="url">
+                  仅在一点连续的函数例子
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-16T00:26:38+08:00">
+                2015-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在一元微积分中，有一个广为人知的结论：一元函数在一点可导，必在该点连续，即可导必连续。那么自然会有这样一个问题：</p>
+<blockquote>
+<p>一元函数在一点可导能否推出它在该点的一个小邻域连续呢？</p>
+</blockquote>
+<p>这个想法是很自然的，不严格的思考可能会认为应该是对的,但是它并不成立。下面给出一个反例：</p>
+<script type="math/tex; mode=display">
+f(x) = x^2 D(x) = \left\{ 
+\begin{array}{ll} 
+0 & x \in \mathbb{Q} \\
+x^2 & x \notin \mathbb{Q} 
+\end{array} \right.</script><p>其中$D(x)$为Dirichlet函数。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/exampleOfFunctionOnlyContinueAtOnePoint/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/helloHexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
