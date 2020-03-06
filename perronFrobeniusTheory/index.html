@@ -107,13 +107,13 @@
 
 <meta name="description" content="1907年O.Perron发现正矩阵的谱有特别有趣的性质。G.Frobenius在1908-1912年间将Perron的工作推广到不可约非负矩阵的情形，并得到了新的进一步结果。Ferron-Frobenius理论有很多证明方式，下面介绍H.Wielandt的优美证明。  非负矩阵的谱半径就是它的特征值，并且这个特征值对应着非负特征向量。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="perronFrobeniusTheory">
+<meta property="og:title" content="Perron-Frobenius理论">
 <meta property="og:url" content="http://yoursite.com/perronFrobeniusTheory/index.html">
 <meta property="og:site_name" content="521zly">
 <meta property="og:description" content="1907年O.Perron发现正矩阵的谱有特别有趣的性质。G.Frobenius在1908-1912年间将Perron的工作推广到不可约非负矩阵的情形，并得到了新的进一步结果。Ferron-Frobenius理论有很多证明方式，下面介绍H.Wielandt的优美证明。  非负矩阵的谱半径就是它的特征值，并且这个特征值对应着非负特征向量。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2015-12-17T02:27:18.000Z">
-<meta property="article:modified_time" content="2020-03-06T18:20:31.225Z">
+<meta property="article:modified_time" content="2020-03-06T20:12:09.360Z">
 <meta property="article:author" content="茶茶白">
 <meta property="article:tag" content="Math">
 <meta property="article:tag" content="Matrix">
@@ -151,7 +151,7 @@
 
 
 
-  <title> perronFrobeniusTheory | 521zly </title>
+  <title> Perron-Frobenius理论 | 521zly </title>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -321,7 +321,7 @@
             
             
               
-                perronFrobeniusTheory
+                Perron-Frobenius理论
               
             
           </h1>
@@ -393,7 +393,7 @@
 (Bx)_i = \sum _{j=1} ^{n} b _{ij} x _j = 
 \sum _{j=1} ^{k} b _{ij} x _j = 0</script><p>但当$1 \leq j \leq k$时，$x_j &gt;0 $。所以$b_{ij}=0$, 其中$k+1 \leq i \leq n,1 \leq j \leq k$ 矛盾于$A$不可约，证毕。</p>
 <h3 id="引理2-设-A-是-n-阶不可约非负矩阵，-y-in-mathbf-R-n-backslash-lbrace-0-rbrace-则-I-A-n-1-y-gt-0"><a href="#引理2-设-A-是-n-阶不可约非负矩阵，-y-in-mathbf-R-n-backslash-lbrace-0-rbrace-则-I-A-n-1-y-gt-0" class="headerlink" title="引理2 设$A$是$n$阶不可约非负矩阵，$y\in \mathbf{R}_+^{n} \backslash \lbrace 0 \rbrace $ 则 $(I+A)^{n-1}y&gt;0$."></a>引理2 设$A$是$n$阶不可约非负矩阵，$y\in \mathbf{R}_+^{n} \backslash \lbrace 0 \rbrace $ 则 $(I+A)^{n-1}y&gt;0$.</h3><h3 id="引理3-设-n-gt-1-则-n-阶非负矩阵-A-不可约当且仅当，-y-in-mathbf-R-n-backslash-lbrace-0-rbrace-则-I-A-n-1-gt-0"><a href="#引理3-设-n-gt-1-则-n-阶非负矩阵-A-不可约当且仅当，-y-in-mathbf-R-n-backslash-lbrace-0-rbrace-则-I-A-n-1-gt-0" class="headerlink" title="引理3 设$n&gt;1$则$n$阶非负矩阵$A$不可约当且仅当，$y\in \mathbf{R}_+^{n} \backslash \lbrace 0 \rbrace $ 则 $(I+A)^{n-1}&gt;0$."></a>引理3 设$n&gt;1$则$n$阶非负矩阵$A$不可约当且仅当，$y\in \mathbf{R}_+^{n} \backslash \lbrace 0 \rbrace $ 则 $(I+A)^{n-1}&gt;0$.</h3><p><strong>Proof</strong>: 应用<strong>引理2</strong>，考虑$(I+A)^{n-1}e_j$即可。</p>
-<h3 id="引理4-一个不可约非负矩阵的非负特征向量是正特征向量。"><a href="#引理4-一个不可约非负矩阵的非负特征向量是正特征向量。" class="headerlink" title="引理4 一个不可约非负矩阵的非负特征向量是正特征向量。"></a>引理4 一个不可约非负矩阵的非负特征向量是正特征向量。</h3><p><strong>Proof</strong>：设$A$是不可约非负矩阵，$Ax=\lambda x, x \geq 0,x \neq 0$。显然 $\lambda \geq 0$ 我们有 $(I+A)x =<br>(1 + \lambda)x$ ，因此$(1+A)x$与$x$有相同个数的正分量，有引理1知$x&gt;0$。</p>
+<h3 id="引理4-一个不可约非负矩阵的非负特征向量是正特征向量。"><a href="#引理4-一个不可约非负矩阵的非负特征向量是正特征向量。" class="headerlink" title="引理4 一个不可约非负矩阵的非负特征向量是正特征向量。"></a>引理4 一个不可约非负矩阵的非负特征向量是正特征向量。</h3><p><strong>Proof</strong>：设$A$是不可约非负矩阵，$Ax=\lambda x, x \geq 0,x \neq 0$。显然 $\lambda \geq 0$ 我们有 $(I+A)x =<br>(1 + \lambda)x$ ，因此$(1+A)x$与$x$有相同个数的正分量，有<strong>引理1</strong>知$x&gt;0$。</p>
 <h3 id="Collatz-Wielandt函数"><a href="#Collatz-Wielandt函数" class="headerlink" title="Collatz-Wielandt函数"></a>Collatz-Wielandt函数</h3><p>设$A$是一个$n$阶非负矩阵。$A$的Collatz－Wielandt函数$f_A \colon \mathbf{R}_+ ^n \backslash \lbrace 0 \rbrace  \to \mathbf{R}_+$定义为：</p>
 <script type="math/tex; mode=display">
 f_A(x) = \min _{ x _i \neq 0 } \frac{(Ax) _i }{x _i}</script><h3 id="引理5-设A为n阶非负不可约矩阵，则"><a href="#引理5-设A为n阶非负不可约矩阵，则" class="headerlink" title="引理5 设A为n阶非负不可约矩阵，则"></a>引理5 设A为n阶非负不可约矩阵，则</h3><ol>
