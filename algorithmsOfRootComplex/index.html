@@ -1,0 +1,682 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C++," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="ACMer 考虑算法时总会优先考虑时间复杂度，这里介绍几个优美的根号复杂度的算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="根号复杂度的算法">
+<meta property="og:url" content="http://yoursite.com/algorithmsOfRootComplex/index.html">
+<meta property="og:site_name" content="521zly">
+<meta property="og:description" content="ACMer 考虑算法时总会优先考虑时间复杂度，这里介绍几个优美的根号复杂度的算法">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-06T20:13:17.000Z">
+<meta property="article:modified_time" content="2020-03-06T20:36:57.347Z">
+<meta property="article:author" content="茶茶白">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"remove","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/algorithmsOfRootComplex/"/>
+
+
+
+
+
+  <title> 根号复杂度的算法 | 521zly </title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?699b245cef6684fc1e306cd9cc1cb26a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">521zly</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/Links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Links
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/About" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/algorithmsOfRootComplex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="茶茶白">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="521zly">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                根号复杂度的算法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-07T04:13:17+08:00">
+                2020-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/algorithmsOfRootComplex/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="ACMer-考虑算法时总会优先考虑时间复杂度，这里介绍几个优美的根号复杂度的算法"><a href="#ACMer-考虑算法时总会优先考虑时间复杂度，这里介绍几个优美的根号复杂度的算法" class="headerlink" title="ACMer 考虑算法时总会优先考虑时间复杂度，这里介绍几个优美的根号复杂度的算法"></a>ACMer 考虑算法时总会优先考虑时间复杂度，这里介绍几个优美的根号复杂度的算法</h3><a id="more"></a>
+<h3 id="1-s-n-sum-i-1-n-lfloor-frac-n-i-rfloor"><a href="#1-s-n-sum-i-1-n-lfloor-frac-n-i-rfloor" class="headerlink" title="1. $s(n) = \sum_{i=1}^{n} \lfloor \frac{n}{i} \rfloor$"></a>1. $s(n) = \sum_{i=1}^{n} \lfloor \frac{n}{i} \rfloor$</h3><p>由于 $ \lfloor \frac{n}{i} \rfloor  $ 的取值个数不会超过 $2\sqrt{n}$ . 所以可能存在 $O(\sqrt{n})$的算法：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LL <span class="title">getsum</span><span class="params">(LL n)</span></span>&#123; <span class="comment">// The code is simple and easy to understand</span></span><br><span class="line">    LL sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(LL i=<span class="number">1</span>,j;i&lt;=n;i=j+<span class="number">1</span>)&#123; </span><br><span class="line">        j = n/(n/i);</span><br><span class="line">        sum += (j-i+<span class="number">1</span>)*(n/i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>事实上， $s(n)$ 表示图像 $xy=1$ 下方正整点的个数</p>
+</blockquote>
+<h3 id="2-sigma-k-n-sum-d-n-d-k"><a href="#2-sigma-k-n-sum-d-n-d-k" class="headerlink" title="2. $ \sigma_k(n) = \sum_{d|n} d^k $"></a>2. $ \sigma_k(n) = \sum_{d|n} d^k $</h3><ol>
+<li>$ \sigma_0(n)$ 表示正因子个数</li>
+<li>$ \sigma_1(n)$ 表示正因子之和<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LL <span class="title">mypow</span><span class="params">(LL x,LL n)</span></span>&#123;</span><br><span class="line">    LL r = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(n)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n&amp;<span class="number">1</span>) r=r*x;</span><br><span class="line">        n&gt;&gt;=<span class="number">1</span>;  x=x*x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">LL <span class="title">getr</span><span class="params">(LL n,LL k)</span></span>&#123;</span><br><span class="line">    LL r = <span class="number">0</span>,d;</span><br><span class="line">    <span class="keyword">for</span>(d=<span class="number">1</span>;d*d&lt;n;++d)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n%d==<span class="number">0</span>)  r += mypow(d,k) + mypow(n/d,k);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(d*d == n) r+=mypow(d,k);</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="3-f-n-sum-i-1-n-sigma-k-i"><a href="#3-f-n-sum-i-1-n-sigma-k-i" class="headerlink" title="3. $ f(n) = \sum_{i=1}^n \sigma_k(i)$"></a>3. $ f(n) = \sum_{i=1}^n \sigma_k(i)$</h3><script type="math/tex; mode=display">
+f(n) = \sum_{i=1}^n \sigma_k(n) =
+\sum_{i=1}^n \sum_{d|i} d^k = 
+\sum_{d=1} d^k \sum_i ^n[d|i] =
+\sum_{d=1} ^n d^k \lfloor \frac{n}{d} \rfloor</script><p>如果我们已经得到 $ ts[n] = \sum_{i=1}^n i^k $类似问题1，我们有以下C++代码<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LL <span class="title">getf</span><span class="params">(LL n)</span></span>&#123;</span><br><span class="line">    LL sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(LL i=<span class="number">1</span>,j;i&lt;=n;i=j+<span class="number">1</span>)&#123; </span><br><span class="line">        j = n/(n/i);</span><br><span class="line">        sum += (ts[j]-ts[i<span class="number">-1</span>])*(n/i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>事实上我们有：</p>
+<script type="math/tex; mode=display">
+ts[n] = \left \lbrace 
+\begin{array}{ll}
+\frac{n(n+1)}{2} & k=1 \\
+\frac{n(n+1)(2n+1)}{6} & k=2 \\
+\frac{n^2(n+1)^2}{4} & k=3 \\ 
+\end{array} \right.</script><p>更一般的我们有</p>
+<script type="math/tex; mode=display">
+1^p+2^p+ \dots + n^p = \sum _{k=1} ^p \; (\; \sum_{j=1} ^ {k} (-1)^{k-j} C_k^j j^p \;) \; C _{n+1} ^{k+1}</script>
+<h3 id="4-g-n-sum-i-1-n-psi-i"><a href="#4-g-n-sum-i-1-n-psi-i" class="headerlink" title="4. $ g(n) = \sum_{i=1}^n\psi(i) $"></a>4. $ g(n) = \sum_{i=1}^n\psi(i) $</h3><p>这里$\psi(n)$  是<a href="https://en.wikipedia.org/wiki/Euler%27s_totient_function" target="_blank" rel="noopener">欧拉函数</a>小于$n$且和$n$互素的数的个数. Euler’s 乘积公式: </p>
+<script type="math/tex; mode=display">
+\phi(n) = n \prod _{p|n}( 1-\frac{1}{p} )</script><p>我们现在开始计算 $g(n)$</p>
+<script type="math/tex; mode=display">
+g(n) = \sum_ {i=1}^n \phi(i) = \sum_{1 \leq x \leq y \leq n , gcd(x,y)=1} 1</script><p>我们定义</p>
+<script type="math/tex; mode=display">
+g_k(n) = \sum_ {i=1}^n \phi(i) = \sum_{1 \leq x \leq y \leq n , gcd(x,y)=k} 1 = f(\lfloor \frac{n}{k} \rfloor)</script><p>并且 $<br>\sum_{i=1}^n g_k(i) = \sum_{1 \leq x \leq y \leq n} 1 = \frac{n(n+1)}{2}<br>$ ，于是我们知道</p>
+<script type="math/tex; mode=display">
+g(n) = \frac{n(n+1)}{2} - \sum_ {k=2}^n f(\lfloor \frac{n}{k} \rfloor)</script><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000006</span>;</span><br><span class="line">LL ans[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(ans,<span class="number">-1</span>,<span class="keyword">sizeof</span>(ans));</span><br><span class="line">    ans[<span class="number">1</span>]=<span class="number">1</span>;ans[<span class="number">2</span>]=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">LL <span class="title">getans</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;N&amp;&amp;ans[n]!=<span class="number">-1</span>) <span class="keyword">return</span> ans[n];</span><br><span class="line">    LL r = n*(n+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>,j;i&lt;=n;i=j+<span class="number">1</span>)&#123;</span><br><span class="line">        j = n/(n/i);</span><br><span class="line">        r -= (j-i+<span class="number">1</span>)*getans(n/i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;N) ans[n]=r;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-Problem-hdu5608"><a href="#5-Problem-hdu5608" class="headerlink" title="5. Problem hdu5608"></a>5. Problem hdu5608</h3><p>已知 $ n^2 -3n+2 = \sum_ {d|n} f(d) $ 计算 $ h(n) = \sum_{i=1}^n f(i) \; mod \; 10^9+7 $</p>
+<p>由于</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^n \sum_ {d|i} f(d) = \sum_{i=1}^n f(i) \lfloor \frac{n}{i} \rfloor =  \sum_{i=1}^n h(\lfloor \frac{n}{i} \rfloor)</script><p>我们知道</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^n \sum_ {d|i} f(d) = \sum_{i=1}^n n^2-3n+2 = \sum_{i=1}^n (n-1)(n-2) = \frac{n(n-1)(n-2)}{3}</script><p>所以</p>
+<script type="math/tex; mode=display">
+h(n) = \frac{n(n-1)(n-2)}{3} - \sum_{i=2}^n h(\lfloor \frac{n}{i} \rfloor)</script><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//#pragma comment(linker,"/STACK:10240000,10240000")</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; PII;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;LL,LL&gt; PLL;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> clr(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MP make_pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PB push_back</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lrt rt&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rrt rt&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lson l,m,lrt</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rson m+1,r,rrt</span></span><br><span class="line"><span class="comment">/*------ Welcome to visit blog of dna049: http://dna049.com ------*/</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000006</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inv3 = (M+<span class="number">1</span>)/<span class="number">3</span>;</span><br><span class="line"><span class="keyword">int</span> ans[N];</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;++i)&#123;</span><br><span class="line">        ans[i] = LL(i<span class="number">-1</span>)*(i<span class="number">-2</span>)%M;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;++i)&#123;  <span class="comment">// Pretreatment acceleration</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i&lt;&lt;<span class="number">1</span>;j&lt;N;j+=i)&#123;</span><br><span class="line">            ans[j] -= ans[i];</span><br><span class="line">            <span class="keyword">if</span>(ans[j] &lt; <span class="number">0</span>) ans[j] += M;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;N;++i)&#123;</span><br><span class="line">        ans[i] += ans[i<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">if</span>(ans[i] &gt; M)  ans[i] -= M;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getans</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123; </span><br><span class="line">    <span class="keyword">if</span>(n&lt;N) <span class="keyword">return</span> ans[n];</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;::iterator it = mp.<span class="built_in">find</span>(n); <span class="comment">//Memory search</span></span><br><span class="line">    <span class="keyword">if</span> (it != mp.<span class="built_in">end</span>())  <span class="keyword">return</span> it-&gt;second;</span><br><span class="line">    <span class="keyword">int</span> r = LL(n)*(n<span class="number">-1</span>)%M*(n<span class="number">-2</span>)%M*inv3%M;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>,j;i&lt;=n;i=j+<span class="number">1</span>)&#123;</span><br><span class="line">        j = n/(n/i);</span><br><span class="line">        r -= LL(j-i+<span class="number">1</span>)*getans(n/i)%M;</span><br><span class="line">        <span class="keyword">if</span>(r&lt;<span class="number">0</span>) r+=M;</span><br><span class="line">    &#125;</span><br><span class="line">    mp.insert(pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;(n,r));</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//    freopen("/Users/c10110057/Desktop/AC/in","r",stdin);</span></span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">int</span> T,n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;T;</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;getans(n)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>感谢<a href="http://zimpha.github.io" target="_blank" rel="noopener">Zimpha</a>提出上述算法</p>
+<p>Last update: 2020年3月7日04:36:53</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/note/" rel="next" title="杂记">
+                <i class="fa fa-chevron-left"></i> 杂记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">茶茶白</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "2bff0484652d4b2cb863a85d263ef625",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.0"></script>
+
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
