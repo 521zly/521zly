@@ -556,132 +556,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ImageToBite/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="茶茶白">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="521zly">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/ImageToBite/" itemprop="url">
-                  图片转化成位数据
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-29T12:46:13+08:00">
-                2020-02-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="把图片变成数据"><a href="#把图片变成数据" class="headerlink" title="把图片变成数据"></a>把图片变成数据</h3><p>有时程序需要加载本地图片，然后打包的时候就很不方便，所以wxPython支持img2png.py、img2py.py、img2xpm.py等工具来支持这种操作，但是我调用的时候一直出错，在网上查了很多方式最后找到了解决方案：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># imageToBite.py</span></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'dna049.png'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">	bData = base64.b64encode(f.read())</span><br><span class="line">	pData = bData.decode()</span><br><span class="line">	print(pData)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ImageToBite/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/python-gui/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1021,21 +895,14 @@
 
       
         
-          
-            <p>第一篇Hexo博文当然要感谢给我们免费提供二级域名和云服务器的<a href="https://github.com/" target="_blank" rel="noopener">github</a>还有提供框架<a href="http://hexo.io/" target="_blank" rel="noopener">Hexo</a>和主题<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">next</a>下面是一些<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">markdown</a>数学方面的简单操作。</p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><ol>
-<li><a href="https://github.com/jackfrued/Python-100-Days/blob/master/%E7%95%AA%E5%A4%96%E7%AF%87/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2.md" target="_blank" rel="noopener">详细步骤</a> 安装Hexo 并上传到git上</li>
-<li>主题<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">next</a></li>
-<li>安装nmp和pip的<a href="/note/" title="国内加速">国内加速</a></li>
-<li><a href="https://www.jianshu.com/p/7ab21c7f0674" target="_blank" rel="noopener">Mathjax渲染</a></li>
-<li></li>
-</ol>
-<h3 id="Mathjax-示例"><a href="#Mathjax-示例" class="headerlink" title="Mathjax 示例"></a>Mathjax 示例</h3><h4 id="The-Quadratic-Formula："><a href="#The-Quadratic-Formula：" class="headerlink" title="The Quadratic Formula："></a>The Quadratic Formula：</h4><script type="math/tex; mode=display">x = {-b \pm \sqrt{b^2-4ac} \over 2a}</script><h4 id="The-Lorenz-Equations"><a href="#The-Lorenz-Equations" class="headerlink" title="The Lorenz Equations"></a>The Lorenz Equations</h4><p>\[\begin{aligned}<br>\dot{x} &amp; = \sigma(y-x) \\\<br>\dot{y} &amp; = \rho x - y - xz \\\<br>\dot{z} &amp; = -\beta z + xy<br>\end{aligned} \]</p>
-<h3 id="日常表白zly"><a href="#日常表白zly" class="headerlink" title="日常表白zly"></a>日常表白zly</h3><blockquote>
-<p>Last update: </p>
-</blockquote>
-
-          
+          <p>第一篇Hexo博文当然要感谢给我们免费提供二级域名和云服务器的<a href="https://github.com/" target="_blank" rel="noopener">github</a>还有提供框架<a href="http://hexo.io/" target="_blank" rel="noopener">Hexo</a>和主题<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">next</a>下面是一些<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">markdown</a>数学方面的简单操作。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/helloHexo/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
