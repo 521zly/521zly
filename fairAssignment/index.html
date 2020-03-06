@@ -1,0 +1,766 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="math,运筹学," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="如果说数学有点用，估计大都表现在运筹学中吧。“公平”的席位分配首先本来就是不可能的，公平一般是无法达到的，我们只是尽量降低不公平度，那么我们怎么衡量不公平度呢。就像评价一个人，有不同的指标，不公平度也是一样，这里介绍一种相对合理易于接受，且好判断的方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“公平”的席位分配">
+<meta property="og:url" content="http://yoursite.com/fairAssignment/index.html">
+<meta property="og:site_name" content="521zly">
+<meta property="og:description" content="如果说数学有点用，估计大都表现在运筹学中吧。“公平”的席位分配首先本来就是不可能的，公平一般是无法达到的，我们只是尽量降低不公平度，那么我们怎么衡量不公平度呢。就像评价一个人，有不同的指标，不公平度也是一样，这里介绍一种相对合理易于接受，且好判断的方法。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-02-17T04:23:42.000Z">
+<meta property="article:modified_time" content="2020-03-06T22:15:41.566Z">
+<meta property="article:author" content="茶茶白">
+<meta property="article:tag" content="math">
+<meta property="article:tag" content="运筹学">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"remove","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/fairAssignment/"/>
+
+
+
+
+
+  <title> “公平”的席位分配 | 521zly </title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?699b245cef6684fc1e306cd9cc1cb26a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">521zly</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/Links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Links
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/About" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/fairAssignment/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="茶茶白">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="521zly">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                “公平”的席位分配
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-02-17T12:23:42+08:00">
+                2016-02-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/fairAssignment/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>如果说数学有点用，估计大都表现在运筹学中吧。“公平”的席位分配首先本来就是不可能的，公平一般是无法达到的，我们只是尽量降低不公平度，那么我们怎么衡量不公平度呢。就像评价一个人，有不同的指标，不公平度也是一样，这里介绍一种相对合理易于接受，且好判断的方法。</p>
+<a id="more"></a>
+<h3 id="问题表述"><a href="#问题表述" class="headerlink" title="问题表述"></a>问题表述</h3><p>某学校三个系部学生共200名,(甲系100,乙系60,丙系40)代表会议共20席,按比例分配三个系分别为10、6、4席。老情况变为下列情况怎样分配才是最公平的,现因学生转系三系人数为103、63、34。 </p>
+<ol>
+<li>问20席该如何分配 ? </li>
+<li>若增加21席又如何分配 ?</li>
+</ol>
+<p>显然，因为无法整除无论如何分配都不公平。下面说一下几种策略。</p>
+<ol>
+<li>按班级人数比例乘以总人数，小数点大的分得多余的一个位子。</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">某校</th>
+<th style="text-align:right">甲系</th>
+<th style="text-align:right">乙系</th>
+<th style="text-align:right">丙系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">共200人</td>
+<td style="text-align:right">103</td>
+<td style="text-align:right">63</td>
+<td style="text-align:right">34</td>
+</tr>
+<tr>
+<td style="text-align:center">人数比例</td>
+<td style="text-align:right">51.3</td>
+<td style="text-align:right">31.5</td>
+<td style="text-align:right">17</td>
+</tr>
+<tr>
+<td style="text-align:center">20席位</td>
+<td style="text-align:right">10.3</td>
+<td style="text-align:right">6.3</td>
+<td style="text-align:right">3.4</td>
+</tr>
+<tr>
+<td style="text-align:center">实际分配</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td style="text-align:center">21席位</td>
+<td style="text-align:right">10.82</td>
+<td style="text-align:right">6.62</td>
+<td style="text-align:right">3.57</td>
+</tr>
+<tr>
+<td style="text-align:center">实际分配</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>按照上述方法，会出现席位增多而丙系的席位却减少了一个的不合理现象，说明此方法并不合理。</p>
+<h3 id="模型建立"><a href="#模型建立" class="headerlink" title="模型建立"></a>模型建立</h3><p>假设由A、B两个单位公平分配席位的情况，设两方人数$p_1,p_2$ ,分配到的席位为 $n_1,n_2$。</p>
+<ol>
+<li><p>$\frac{p_1}{n_1} = \frac{p_2}{n_2}$ 公平，但是一般是不满足的。</p>
+</li>
+<li><p>$\frac{p_1}{n_1} &gt; \frac{p_2}{n_2}$ 对A不公平。</p>
+</li>
+<li><p>$\frac{p_1}{n_1} &lt; \frac{p_2}{n_2}$ 对B不公平。<br>s<br>绝对不公平度为</p>
+<script type="math/tex; mode=display">
+d = \left| \frac{p_1}{n_1} - \frac{p_2}{n_2} \right|</script><p>但这样做还是有不足，例如<br>某两个单位的人数和席位为 $n_1=n_2=10,p_1=120,p_2=100$ 算得  $d=2$.<br>另两个单位的人数和席位为 $n_1=n_2=10,p_1=1020,p_2=1000$ 算得 $d=2$。<br>但是显然，后一种方案，更公平。</p>
+</li>
+</ol>
+<p>因此，我们引入相对不公平度</p>
+<ol>
+<li>若 $\frac{p_1}{n_1} &gt; \frac{p_2}{n_2}$ 则<script type="math/tex; mode=display">
+r_A(n_1,n_2) = \frac{ \frac{p_1}{n_1} - \frac{p_2}{n_2} }{ \frac{p_2}{n_2} }</script></li>
+</ol>
+<ol>
+<li>若 $\frac{p_1}{n_1} &lt; \frac{p_2}{n_2}$<script type="math/tex; mode=display">
+r_B(n_1,n_2) =  \frac{\frac{p_2}{n_2} - \frac{p_1}{n_1} }{\frac{p_1}{n_1}}</script>我们的目标是让$r_A,r_B$(每种分配只会有一个)最小。</li>
+</ol>
+<h5 id="确定分配方案"><a href="#确定分配方案" class="headerlink" title="确定分配方案"></a>确定分配方案</h5><p>假设当前 $\frac{p_1}{n_1} &gt; \frac{p_2}{n_2}$ 对A不公平。新增了一个席位。</p>
+<ol>
+<li><p>若 $\frac{p_1}{n_1+1} &gt; \frac{p_2}{n_2}$ 则A加1席</p>
+</li>
+<li><p>若 $\frac{p_1}{n_1+1} &lt; \frac{p_2}{n_2}$<br>若分配给A，则对B的不公平值(相对):</p>
+<script type="math/tex; mode=display">
+r_B(n_1+1,n_2) = \frac{p_2(n_1+1)}{p_1 n_2} -1</script><p>若分配给B，则对A的不公平值(相对):</p>
+<script type="math/tex; mode=display">
+r_A(n_1,n_2+1) = \frac{p_1(n_2+1)}{p_2 n_1} -1</script></li>
+</ol>
+<p>若$r_A(n_1,n_2+1)&lt;r_B(n_1+1,n_2)$则席位分配给B，反之给A。<br>即令</p>
+<script type="math/tex; mode=display">
+Q_i = \frac{p_i ^2}{n_i(n_i+1)}</script><p>将席位分配给 $Q$ 值较大者。</p>
+<h3 id="模型求解"><a href="#模型求解" class="headerlink" title="模型求解"></a>模型求解</h3><p>先按照平均原则取整之后。分出了19席：$n_1=10,n_2=6,n_3=3$<br>第20席: </p>
+<script type="math/tex; mode=display">
+Q_1 = \frac{103^2}{10 \times 11 } = 96.4 \; , \;Q_2 = \frac{63^2}{6 \times 7} = 94.5 \; , \;Q_3 = \frac{34^2}{3 \times 4} = 96.3</script><p>则分配：$n_1=11,n_2=6,n_3=3$<br>第21席：$Q_1=80.4, Q_2 = 94.5, Q_3 = 96.3$<br>则分配：$n_1=11,n_2=6,n_3=4$.</p>
+<p>本文参考<a href="http://wenku.baidu.com/view/396d4f6aaf1ffc4ffe47ac52.html?re=view" target="_blank" rel="noopener">文库1</a>和<a href="http://wenku.baidu.com/view/312ef3274b35eefdc9d33304.html?re=view" target="_blank" rel="noopener">文库2</a>。修改了其中的错误，由于席位分配问题确实是一个经典问题，故在此记录。</p>
+<blockquote>
+<p>Last update: 2020年3月7日06:15:23</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/math/" rel="tag"># math</a>
+          
+            <a href="/tags/%E8%BF%90%E7%AD%B9%E5%AD%A6/" rel="tag"># 运筹学</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/quadraticResidueAndGuassReciprocity/" rel="next" title="二次剩余和Guass互反律">
+                <i class="fa fa-chevron-left"></i> 二次剩余和Guass互反律
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/specialTopologyOnNaturalNumber/" rel="prev" title="整数集上的一种特殊拓扑">
+                整数集上的一种特殊拓扑 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">茶茶白</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "2bff0484652d4b2cb863a85d263ef625",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.0"></script>
+
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>

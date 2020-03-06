@@ -1,0 +1,882 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Math," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="最近重温潘承洞老先生的《数论基础》(现代数学基础丛书34)，确实是经典中的经典。以现代的眼光看数论函数，使得分析问题更加简洁本质，而这些都要归功于 Dirichlet 积的引入。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数论函数的 Dirichlet 积">
+<meta property="og:url" content="http://yoursite.com/dirichletProduct/index.html">
+<meta property="og:site_name" content="521zly">
+<meta property="og:description" content="最近重温潘承洞老先生的《数论基础》(现代数学基础丛书34)，确实是经典中的经典。以现代的眼光看数论函数，使得分析问题更加简洁本质，而这些都要归功于 Dirichlet 积的引入。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-01-20T12:09:26.000Z">
+<meta property="article:modified_time" content="2020-03-06T21:23:10.771Z">
+<meta property="article:author" content="茶茶白">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"remove","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/dirichletProduct/"/>
+
+
+
+
+
+  <title> 数论函数的 Dirichlet 积 | 521zly </title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?699b245cef6684fc1e306cd9cc1cb26a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">521zly</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/Links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Links
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/About" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/dirichletProduct/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="茶茶白">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="521zly">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                数论函数的 Dirichlet 积
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-01-20T20:09:26+08:00">
+                2016-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/dirichletProduct/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近重温潘承洞老先生的《数论基础》(现代数学基础丛书34)，确实是经典中的经典。以现代的眼光看数论函数，使得分析问题更加简洁本质，而这些都要归功于 Dirichlet 积的引入。<br><a id="more"></a></p>
+<h3 id="常见数论函数"><a href="#常见数论函数" class="headerlink" title="常见数论函数"></a>常见数论函数</h3><p>为了更好的介绍 Dirichlet 积，先引入一些记号，数论函数是指定义于全体正整数集上的函数。</p>
+<ol>
+<li><p>$u(n) \equiv 1$ </p>
+</li>
+<li><p>$e(n) = n$</p>
+</li>
+<li><p>$ I(n) = \left\{\begin{array}{ll} 1, &amp; n=1, \\ 0, &amp; n&gt;1. \end{array} \right. $</p>
+</li>
+<li><p>n的所有正除数的个数 $d(n)$.</p>
+<script type="math/tex; mode=display">
+ d(n)= \sum_{d|n} 1 = (a_1+1)(a_2+1) \cdots (a_n+1), \; n=p_1^{a_1} \cdots p_s^{a_s}</script></li>
+</ol>
+<ol>
+<li>n的全部素因子的个数（按重数计）$ \Omega(n) $<script type="math/tex; mode=display">
+\begin{array}{ll} \Omega(1)=0 & \\
+\Omega(n) = a_1 + a_2+ \cdots a_n, & n=p_1^{a_1} \cdots p_s^{a_s} \end{array}</script></li>
+</ol>
+<ol>
+<li>n的不同素因子的个数 $\omega(n)$<script type="math/tex; mode=display">
+\begin{array}{ll} \omega(1)=0 & \\
+\omega(n) = s, & n=p_1^{a_1} \cdots p_s^{a_s} \end{array}</script></li>
+</ol>
+<ol>
+<li><p>n的正除数的幂和函数 $\sigma_{\lambda}(n) = \sum_{d|n} d^{\lambda}$</p>
+</li>
+<li><p>所有不超过n且和n互素的正整数的个数 $\psi(n)$</p>
+<script type="math/tex; mode=display">
+\phi(n) = \sum_{ \begin{array}{c} 1 \leq d \leq n \\
+(d,n)=1 \end{array} } 1</script><p>$\psi(n)$ 称之为Euler函数。</p>
+</li>
+<li><p>Mobius 函数 $\mu(n)$</p>
+<script type="math/tex; mode=display">
+\mu(n) = \left\{\begin{array}{ll} 1, & n=1, \\ (-1)^s, & n=p_1p_2 \cdots p_s, \; p_1 < p_2< \cdots < p_s. \\
+0, & else. \end{array} \right.</script></li>
+</ol>
+<ol>
+<li>Mangoldt函数 $\Lambda(n)$<script type="math/tex; mode=display">
+\Lambda(n) = \left\{\begin{array}{ll} \log p, & n= p^k, k \geq 1\\
+0, & else. \end{array} \right.</script></li>
+</ol>
+<ol>
+<li><p>Liouville 函数 $\lambda(n) = (-1)^{\Omega(n)}$</p>
+</li>
+<li><p>Euler函数的推广(自创 dna0.49 ) $ \phi _{\lambda}(n)$</p>
+<script type="math/tex; mode=display">
+\phi _{\lambda} (n) = \sum_{ \begin{array}{c} 1 \leq d \leq n \\
+(d,n)=1 \end{array} } d^{\lambda}</script><p>当 $\lambda = 0$ 时即为Euler函数。</p>
+</li>
+<li><p>$M(n)=\sum_{i=1}^n \mu(i)$，则我们有 $\sum_{i=1} ^n M(\lfloor \frac{n}{i} \rfloor) = 1$</p>
+</li>
+<li><p>$N(n)=\sum_{i=1}^n \phi(i)$，我们有</p>
+<script type="math/tex; mode=display">
+\sum_{i=1} ^n N(\lfloor \frac{n}{i} \rfloor) = \frac{n(n+1)}{2}</script></li>
+</ol>
+<p>用下面的 Dirichlet 积的概念，大家就会对上面常见的数论函数有更深刻的认识。</p>
+<h3 id="Dirichlet-积"><a href="#Dirichlet-积" class="headerlink" title="Dirichlet 积"></a>Dirichlet 积</h3><p>设$f(n)$,$g(n)$是两个数论函数，则</p>
+<script type="math/tex; mode=display">
+h(n) = \sum_{d|n} f(d)g(\frac{n}{d})</script><p>称为$f(n)$和$g(n)$的 Dirichlet 积,记作$h=f \star g$.</p>
+<h5 id="定理1-Dirichlet-积满足交换律和结合律即"><a href="#定理1-Dirichlet-积满足交换律和结合律即" class="headerlink" title="定理1 Dirichlet 积满足交换律和结合律即"></a>定理1 Dirichlet 积满足交换律和结合律即</h5><ol>
+<li>交换律： $f \star g = g \star f $</li>
+<li>结合律： $(f\star g) \star h = f \star (g \star h)$</li>
+</ol>
+<h5 id="定理2-Dirichlet-积的幺元存在为-I-n"><a href="#定理2-Dirichlet-积的幺元存在为-I-n" class="headerlink" title="定理2  Dirichlet 积的幺元存在为 $I(n)$"></a>定理2  Dirichlet 积的幺元存在为 $I(n)$</h5><ul>
+<li>由<strong>定理1</strong>和<strong>定理2</strong>知。数论函数全体关于 Dirichlet 积构成了一个含幺交换半群(Commutative Monoid) </li>
+<li>由抽象代数的基本知识知道 Monoid 中的元如果存在逆元必然唯一，证明也是显然的 </li>
+<li>现在的问题就是这个 Monoid 那些元有逆元( Dirichlet 逆，以下简称逆)。或者说一个数论函数可逆的充要条件是什么。</li>
+</ul>
+<p>实际上，我们有如下结论</p>
+<h5 id="定理3-数论函数-f-可逆的充要条件是-f-1-neq-0-此时它的逆元为"><a href="#定理3-数论函数-f-可逆的充要条件是-f-1-neq-0-此时它的逆元为" class="headerlink" title="定理3  数论函数 $f$ 可逆的充要条件是 $f(1) \neq 0$.此时它的逆元为"></a>定理3  数论函数 $f$ 可逆的充要条件是 $f(1) \neq 0$.此时它的逆元为</h5><script type="math/tex; mode=display">
+f^{-1} (1) = \frac{1}{f(1)},\quad 
+f^{-1} (n) = \frac{-1}{f(1)} \sum _{d|n,\, d<n} f(\frac{n}{d})f^{-1}(d),\; n>1</script><p>证明是显然的，验算即知。</p>
+<blockquote>
+<p>至此从抽象的层次已经对数论函数的 Dirichlet 积有了一个清晰的认识，下面用这套语言考虑我们的常见函数     </p>
+</blockquote>
+<h5 id="定理4-Mobius-函数-mu-n-是-u-n-的逆，即"><a href="#定理4-Mobius-函数-mu-n-是-u-n-的逆，即" class="headerlink" title="定理4 Mobius 函数 $\mu(n)$ 是 $u(n)$ 的逆，即"></a>定理4 Mobius 函数 $\mu(n)$ 是 $u(n)$ 的逆，即</h5><script type="math/tex; mode=display">
+\sum_{ d|n } \mu(n) = \left\{ \begin{array}{ll}  1, & n=1, \\
+0, & n>1. \end{array} \right.</script><p><strong>Proof</strong> : $n=1$ 时显然，不妨设 $n = p_1^{a_1} p_2^{a_2} \cdots p_s^{a_s}$ 则由 $\mu(n)$ 的定义</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\sum_{ d|n } \mu(n) & = \mu(1) + \mu(p_1) + \mu(p_2) + \cdots +\mu(p_s) + \cdots + \mu(p_1 p_2) + \cdots \\
+& \quad + \mu(p_{s-1}p_s) + \cdots \mu(p_1 p_2 \cdots p_s) \\
+& =  1 + \begin{matrix} s \\ 1\end{matrix} (-1) + \begin{matrix} s \\ 2\end{matrix} (-1)^2 + \cdots + \begin{matrix} s \\ s\end{matrix} (-1)^s = (1-1)^s = 0 \end{align}</script><blockquote>
+<p>由此可见，原来看上去复杂的不知所以然的 Mobius 函数本质上是恒为1的函数的 Dirichlet 逆元。</p>
+</blockquote>
+<h5 id="定义5-若-F-f-star-u-则称-F-是-f-的-Mobius-变换，即"><a href="#定义5-若-F-f-star-u-则称-F-是-f-的-Mobius-变换，即" class="headerlink" title="定义5  若 $F=f \star u$ 则称$F$ 是$f$ 的 Mobius 变换，即"></a>定义5  若 $F=f \star u$ 则称$F$ 是$f$ 的 Mobius 变换，即</h5><script type="math/tex; mode=display">
+F(n) = \sum_{d|n} f(d)</script><p>显然此时我们有 $ f=F * \mu $,称$f$ 是$F$ 的 Mobius 反变换。<br>实际上，这就是我们常说的 Mobius 反演公式。</p>
+<script type="math/tex; mode=display">
+F(n) = \sum_{d|n} f(d) \Longleftrightarrow f(n) = \sum_{d|n} F(d) \mu(\frac{n}{d})</script><p>Mobius 变换的例子</p>
+<ol>
+<li>$I(n)$ 是 $\mu(n)$ 的 Mobius 变换</li>
+<li>$d(n)$ 是 $u(n)$ 的 Mobius 变换</li>
+<li>$e(n)$ 是 $\phi(n)$ 的 Mobius 变换</li>
+<li>$\log n$ 是 $\Lambda(n)$ 的 Mobius 变换</li>
+</ol>
+<p>前两个是显然的，后面两个证明如下。</p>
+<script type="math/tex; mode=display">
+n = \sum _{i=1} ^n 1 = 
+\sum _{d|n} \sum_{(n,i) = d} 1 =
+\sum _{d|n} \sum_{(\frac{n}{d},k)=1} 1 =
+\sum _{d|n} \phi(\frac{n}{d}) = \sum _{d|n} \phi(d)</script><p>因此</p>
+<script type="math/tex; mode=display">
+\phi(n) = \sum _{d|n} \mu(d) \frac{n}{d} = n \sum _{d|n} \frac{\mu(d)}{d}</script><p>另外我们还有一个证明方式</p>
+<script type="math/tex; mode=display">
+\phi(n) = \sum_{ \begin{array}{c} 1 \leq d \leq n \\
+(d,n)=1 \end{array} } 1 ＝ \sum_{1 \leq d \leq n} \sum_ {l|(d,n)} \mu(l) = \sum _{l|n} \mu(l) \sum _{1 \leq d \leq n , l|d} 1 = \sum _{l|n} \mu(l) \frac{n}{l}</script><blockquote>
+<p>上述两种证明都是两种常用处理数论函数的技术手段。</p>
+</blockquote>
+<p>至于 $\log n$ 是 $\Lambda(n)$ 的 Mobius 变换的证明只需验算即知。</p>
+<p>用上面所说的技术，我们来考虑一下推广的Euler函数 $\psi _{\lambda}$</p>
+<script type="math/tex; mode=display">
+\sum _{i=1} ^n i^{\lambda} = 
+\sum _{d|n} \sum_{(n,i) = d} i^{\lambda}  =
+\sum _{d|n} d^{\lambda} \sum_{(\frac{n}{d},k)=1} k^{\lambda}  = 
+\sum _{d|n} d^{\lambda} \phi _{\lambda} (\frac{n}{d}) = 
+n^{\lambda} * \psi _{\lambda}</script><h3 id="可乘函数"><a href="#可乘函数" class="headerlink" title="可乘函数"></a>可乘函数</h3><p>寻找不变量一直是数学关心的问题，变化中的不变量，可以大大简化运算，并且反过来刻画了变化。具体说，寻找 Dirichlet 积不变量一方面对于那些不变量，可以简化它们操作，另一方面，由于 Dirichlet 积保持这些性质也就刻画了 Dirichlet 本身。其中这样的一个不变量就是可乘函数。</p>
+<p>设 $f(n)$ 是定义在全体自然数上不恒为0的数论函数，若它满足条件</p>
+<script type="math/tex; mode=display">
+f(mn) = f(m) f(n), \quad (m,n)=1</script><p>则称之为可乘函数。若对任意正整数 $m,n$ 恒有</p>
+<script type="math/tex; mode=display">
+f(mn) = f(m) f(n)</script><p>则称之为完全可乘函数。</p>
+<p>可乘函数例子：    $\mu(n)$, $d(n)$.<br>完全可乘函数例子：    $n^{\lambda}$, $I(n)$.</p>
+<blockquote>
+<p>显然(完全)可乘函数的的积，倒数(如果有意义的话)都是(完全)可乘函数。</p>
+</blockquote>
+<h5 id="定理6-可乘函数-f-n-有如下性质："><a href="#定理6-可乘函数-f-n-有如下性质：" class="headerlink" title="定理6 可乘函数 $f(n)$ 有如下性质："></a>定理6 可乘函数 $f(n)$ 有如下性质：</h5><ol>
+<li>$f(1)=1$</li>
+<li>$f(n)=f(p_1^{a_1}) f(p_2)^{a_2} \cdots f(p_s)^{a_s}, \quad n = p_1^{a_1} p_2^{a_2} \cdots p_s^{a_s}$</li>
+<li>$f(n)$ 为完全可乘的充要条件是对任意的 $p$ 和 $k \geq 1$ 恒有<script type="math/tex; mode=display">f(p^k) = f ^k (p)</script></li>
+<li>$f((m,n)[m,n])=f(m)f(n)$</li>
+<li>$f$的逆元必然存在(形式上更加简单)</li>
+</ol>
+<p>上述定理的证明是显然的，结论是重要的。</p>
+<h5 id="定理七-Dirchlet-积-保持可乘性"><a href="#定理七-Dirchlet-积-保持可乘性" class="headerlink" title="定理七 Dirchlet 积 保持可乘性"></a>定理七 Dirchlet 积 保持可乘性</h5><ol>
+<li>若 $f$ 可乘, $g$ 可乘, 则 $h=f \star g$ 可乘;</li>
+<li>若 $g$ 可乘, $h=f \star g$ 可乘，则 $f$ 可乘.</li>
+</ol>
+<p><strong>Proof</strong>: </p>
+<ol>
+<li>若 $f$ 可乘, $g$ 可乘, 则对任意满足 $(m,n)=1$ 的正整数 $m,n$,对于 $mn$ 的每一个正因子 $d$ 可以分解为 $d=d_1 d_2$ 的形式, 其中$(d_1,d_2)=1, d_1|m, d_2|n$ <script type="math/tex; mode=display">
+h(mn) = \sum _{d|mn} f(d)g(\frac{mn}{d}) = \sum _{d_1|m} f(d_1)g(\frac{m}{d_1}) \sum _{d_2|n} f(d_2)g(\frac{n}{d_2}) = h(m)h(n)</script></li>
+</ol>
+<ol>
+<li>反证，若$f$不可乘，则可以推出$h$不可乘即可。若$f$不可乘,则必存在$m,n$,$(m,n)=1$ 但是<script type="math/tex; mode=display">
+f(mn) \neq f(m)f(n)</script>若 $mn=1$ , 则 $f(1) \neq f(1) f(1)$ 知 $f(1) \neq 1$. 因此 $h(1)=f(1)g(1)=f(1) \neq 1$ 矛盾于$h$可乘。<br>我们选取满足上述性质的最小正整数$mn$,即当$d_1d_2&lt;mn$是恒有<script type="math/tex; mode=display">f(d_1d_2) = f(d_1)f(d_2),\quad (d_1,d_2)=1</script>由$h$的定义<script type="math/tex; mode=display">
+\begin{align}
+h(mn) = \sum _{d|mn} f(d) g(\frac{mn}{d}) & = 
+\sum _{d_1|m} f(d_1) g(\frac{m}{d_1}) \sum _{d_2|m} f(d_2)g(\frac{n}{d_2})-f(m)f(n) +f(mn) \\
+& = h(m)h(n) -f(m)f(n) + f(mn) \neq h(m)h(n)
+\end{align}</script>证毕。</li>
+</ol>
+<blockquote>
+<p>Dirichlet 积一般不保持完全可乘性。</p>
+</blockquote>
+<p>由<strong>定理6</strong>和<strong>定理7</strong>，我们有如下推论: 若 $F$ 是 $f$ 的 Mobius 变换，则</p>
+<ol>
+<li><p>$f$ 可乘 $\Longleftrightarrow$ $F$ 可乘</p>
+</li>
+<li><p>$f$ 可乘，则</p>
+<script type="math/tex; mode=display">
+F(n) = \sum_{d|n} f(d) = 
+\prod _{p^a || n} (1+ f(p)+\cdots f(p^a))</script></li>
+</ol>
+<ol>
+<li>$f$ 可乘，则 <script type="math/tex; mode=display">
+\sum _{d|n} \mu(d) f(d) = \prod _{p | n} (1 - f(p))</script></li>
+</ol>
+<ul>
+<li>上面1是定理7.1的直接推论，2可由定理6.2的直接推论，3是2的直接推论。由3我们可以得到著名的欧拉公式：<script type="math/tex; mode=display">
+\psi(n) = n \sum _{d|n} \frac{\mu(d)}{d} ＝ n \prod _{p|n} (1-\frac{1}{p})</script></li>
+</ul>
+<h3 id="完全可乘的逆"><a href="#完全可乘的逆" class="headerlink" title="完全可乘的逆"></a>完全可乘的逆</h3><p>由于可乘函数满足 $f(1)=1$ 因此可乘函数的逆相对而言更加简单，并且它的逆也是可乘函数。但是计算逆的过程仍然很复杂，但是完全可乘函数的逆却特别简单。</p>
+<h4 id="定理8-设-f-可乘，则-f-完全可乘的充要条件是"><a href="#定理8-设-f-可乘，则-f-完全可乘的充要条件是" class="headerlink" title="定理8 设 $f$ 可乘，则$f$ 完全可乘的充要条件是"></a>定理8 设 $f$ 可乘，则$f$ 完全可乘的充要条件是</h4><script type="math/tex; mode=display">
+f^{-1}(n) = \mu(n)f(n)</script><h4 id="推广的Mobius反演公式"><a href="#推广的Mobius反演公式" class="headerlink" title="推广的Mobius反演公式"></a>推广的Mobius反演公式</h4><p>设 $g$ 完全可乘, $ h= f \star g $ ,则$ f= h \star \mu g $ ，即</p>
+<script type="math/tex; mode=display">
+h(n) = \sum _{d|n} f(d)g(\frac{n}{d})
+\quad \Longleftrightarrow \quad f(n) = \sum _{d|n} h(d)
+\mu(\frac{n}{d})g(\frac{n}{d})</script><p>另上式中 $g=u$ ，上式就变成了Mobius反演公式。<br>由推广的Mobius反演公式，我们由</p>
+<script type="math/tex; mode=display">
+\sum _{i=1} ^n i^{\lambda} = n^{\lambda} \star \psi _{\lambda}</script><p>可知</p>
+<script type="math/tex; mode=display">
+\psi _{\lambda}(n) = \sum _{i=1} ^n i^{\lambda} \star \mu(n) n^{\lambda}</script><h2 id="广义Dirichlet积"><a href="#广义Dirichlet积" class="headerlink" title="广义Dirichlet积"></a>广义Dirichlet积</h2><p>考虑和式</p>
+<script type="math/tex; mode=display">
+G(x) = \sum_{n \leq x} f(n)H(\frac{x}{n})</script><p>其中 $f(n)$ 是数论函数，$H(x)$ 是 $(0,\infty)$上的函数。<br>我们记 $G = f o H$。特别的若$H(x)$在所有非整数点取值为$0$，则此时就是通常的Dirichlet积。<br>我们有以下性质：</p>
+<script type="math/tex; mode=display">
+f o (g o H) = (f*g) o H</script><p>若 $G = f o H$ 则 $H = f^{-1} o G$。<br>特别的，若 $G(x) = \sum_{n \leq x} H(\frac{x}{n})$, 则我们有 </p>
+<script type="math/tex; mode=display">
+H(x) = \sum_{n \leq x} \mu(n) G(\frac{x}{n})</script><h4 id="一个技巧相当强大的公式-Q-x-sum-n-leq-x-mu-n-，显然表示不超过-x-的无平方因子的正整数个数，则"><a href="#一个技巧相当强大的公式-Q-x-sum-n-leq-x-mu-n-，显然表示不超过-x-的无平方因子的正整数个数，则" class="headerlink" title="一个技巧相当强大的公式 $Q(x)=\sum_{n \leq x} |\mu(n)|$，显然表示不超过 $x$ 的无平方因子的正整数个数，则"></a>一个技巧相当强大的公式 $Q(x)=\sum_{n \leq x} |\mu(n)|$，显然表示不超过 $x$ 的无平方因子的正整数个数，则</h4><script type="math/tex; mode=display">
+Q(x) = \frac{6}{\pi^2} x + O(\sqrt{x})</script><p><strong>Proof</strong> ：显然我们有</p>
+<script type="math/tex; mode=display">
+\lfloor x \rfloor = \sum_{k \leq \sqrt{x}} Q(\frac{x}{k^2})</script><p>另一方面</p>
+<script type="math/tex; mode=display">
+Q(x) = \sum_{n \leq \sqrt{x}} Q(\frac{x}{n^2}) \sum_{d \mid n} \mu(d) =  \sum_{d \leq \sqrt{x}} \mu(d) \sum_{ k \leq \sqrt{\frac{x}{d^2}} } Q(\frac{x}{d^2k^2})</script><p>所以</p>
+<script type="math/tex; mode=display">
+\sum_{n \leq x} |\mu(n)| =  Q(x) =  \sum_{d \leq \sqrt{x}} \mu(d) \lfloor \frac{x}{d^2} \rfloor</script><p>根据上式</p>
+<script type="math/tex; mode=display">
+Q(x) = x \sum\_{d=1}^{\infty} \frac{\mu(d)}{d^2} +O(\sqrt{x}) = \frac{6}{\pi^2} x + O(\sqrt{x})</script><h3 id="三个优美公式"><a href="#三个优美公式" class="headerlink" title="三个优美公式"></a>三个优美公式</h3><p>最后我用三个我很喜欢的公式结束这篇博文。</p>
+<ol>
+<li>$\sum_{n \leq x} d(n) = \sum_{n \leq x} \lfloor \frac{x}{n} \rfloor$</li>
+</ol>
+<script type="math/tex; mode=display">
+\sum _{n \leq x} \lfloor \frac{x}{n} \rfloor = 
+\sum _{n \leq x} \sum _{l \leq x,\; n|l} 1 = 
+\sum _{l \leq x} \sum _{n|l} 1 =
+\sum _{l \leq x} d(l) =
+\sum _{n \leq x} d(n)</script><ol>
+<li>$\sum _{n \leq x} \mu(n) \lfloor \frac{x}{n} \rfloor = 1$</li>
+</ol>
+<script type="math/tex; mode=display">
+\sum _{n \leq x} \mu(n) \lfloor \frac{x}{n} \rfloor =
+\sum _{n \leq x} \mu(n) \sum _{l \leq x,\; n|l} 1 =
+\sum _{l \leq x} \sum _{n|l} \mu(n) = \sum _{l \leq x} I(n) = 1</script><ol>
+<li><p>$\sum _{n=1} ^{\infty} \frac{\mu(n)}{n^2} = \frac{6}{\pi^2} $</p>
+<p><strong>Proof</strong>: </p>
+</li>
+</ol>
+<script type="math/tex; mode=display">
+\sum _{n=1} ^{\infty} \frac{1}{n^2} \sum _{n=1} ^{\infty} \frac{\mu(n)}{n^2} = \sum _{n=1} ^{\infty} \frac{a_n}{n^2}</script><p>$<br>其中<br>$ $a_n = \sum _{d|n} \mu(d) = I(n)$，又由 $\sum _{n=1} ^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$ 结论显然。</p>
+<blockquote>
+<p>Last update: 2020年3月7日05:22:53</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Math/" rel="tag"># Math</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/workWithLatex/" rel="next" title="workWithLatex">
+                <i class="fa fa-chevron-left"></i> workWithLatex
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/inverseFormulaAndItsMatrixForm/" rel="prev" title="两类重要的反演公式及其矩阵形式">
+                两类重要的反演公式及其矩阵形式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">茶茶白</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "2bff0484652d4b2cb863a85d263ef625",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.0"></script>
+
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
