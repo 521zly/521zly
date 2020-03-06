@@ -114,7 +114,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/python-learning/IDE.png">
 <meta property="article:published_time" content="2020-02-26T11:03:28.000Z">
-<meta property="article:modified_time" content="2020-03-05T08:11:43.993Z">
+<meta property="article:modified_time" content="2020-03-06T06:32:21.514Z">
 <meta property="article:author" content="茶茶白">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -395,10 +395,11 @@
 
 <h3 id="简单的终端python程序示例"><a href="#简单的终端python程序示例" class="headerlink" title="简单的终端python程序示例"></a>简单的终端python程序示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># score.py</span></span><br><span class="line">tmp = input(<span class="string">'苏铭的Python分数：'</span>)</span><br><span class="line"><span class="keyword">if</span> tmp.isdigit():</span><br><span class="line">	score = int(tmp)</span><br><span class="line">	<span class="keyword">if</span> score &gt; <span class="number">100</span>:</span><br><span class="line">	    print(<span class="string">'我信了你的鬼话'</span>)</span><br><span class="line">	<span class="keyword">elif</span> score &gt;=<span class="number">60</span>:</span><br><span class="line">		print(<span class="string">'可以呀苏铭'</span>)</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		print(<span class="string">'菜的呀苏铭'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	print(<span class="string">'你输入的是什么鬼哦'</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="简单的GUI-python-程序示例"><a href="#简单的GUI-python-程序示例" class="headerlink" title="简单的GUI python 程序示例"></a>简单的GUI python 程序示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hello.py</span></span><br><span class="line"><span class="keyword">import</span>	wx  <span class="comment">#需要安装wxPython包，见上面pip安装</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Frame1</span><span class="params">(wx.Frame)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, superior)</span>:</span></span><br><span class="line">		wx.Frame.__init__(self, parent= superior, title = <span class="string">'Example'</span>,pos = (<span class="number">400</span>,<span class="number">200</span>),size=(<span class="number">350</span>,<span class="number">500</span>))</span><br><span class="line">		panel = wx.Panel(self)</span><br><span class="line">		text1 = wx.TextCtrl(panel,value = <span class="string">'Hello'</span>,pos = (<span class="number">250</span>,<span class="number">300</span>))</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	app = wx.App()</span><br><span class="line">	frame = Frame1(<span class="literal">None</span>)</span><br><span class="line">	frame.Show(<span class="literal">True</span>)</span><br><span class="line">	app.MainLoop()</span><br></pre></td></tr></table></figure>
+<h3 id="简单的GUI-python-程序示例"><a href="#简单的GUI-python-程序示例" class="headerlink" title="简单的GUI python 程序示例"></a>简单的GUI python 程序示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hello.py</span></span><br><span class="line"><span class="keyword">import</span>	wx  <span class="comment">#需要安装wxPython包，见上面pip安装</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Frame1</span><span class="params">(wx.Frame)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, superior)</span>:</span></span><br><span class="line">		wx.Frame.__init__(self, parent= superior, title = <span class="string">'Example'</span>,pos = (<span class="number">400</span>,<span class="number">200</span>),size=(<span class="number">350</span>,<span class="number">500</span>))</span><br><span class="line">		panel = wx.Panel(self)</span><br><span class="line">		text1 = wx.TextCtrl(panel,value = <span class="string">'Hello'</span>,pos = (<span class="number">250</span>,<span class="number">300</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	app = wx.App()</span><br><span class="line">	frame = Frame1(<span class="literal">None</span>)</span><br><span class="line">	frame.Show(<span class="literal">True</span>)</span><br><span class="line">	app.MainLoop()</span><br></pre></td></tr></table></figure>
 
 <h3 id="IDE选择-sublime-大法好"><a href="#IDE选择-sublime-大法好" class="headerlink" title="IDE选择(sublime 大法好)"></a>IDE选择(sublime 大法好)</h3><p>当时我是大 sublime 啊， 百度 sublime+ python 就可以获得<a href="https://www.cnblogs.com/honkly/p/6599642.html" target="_blank" rel="noopener">完整教程</a> 配置 和 <a href="https://blog.csdn.net/gui951753/article/details/82667860#安装python3和sublime3" target="_blank" rel="noopener">代码补全</a> 配置，安装packageControl <strong>网速慢的话可以早上7点起来尝试</strong>。(缺点是每次要先Ctrl+S保存再F5编译，然后下次编译上次的编译窗口不能自己关，我也不知道怎么搞解决这两个问题，可惜！)</p>
 <p><code>再也不用担心tab不是tab了！ view ---&gt;  Indentation ---&gt; Convert Indentation to tabs</code></p>
+<p><code>多行注释：ctrl + shift + /</code></p>
 <p>最终效果如图：</p>
 <blockquote>
 <p> <strong>一定要配置代码补全!!!, 特别是在用各种包的时候</strong></p>
@@ -406,10 +407,13 @@
 <p><img src="IDE.png" alt="IDE"></p>
 <h3 id="入门教程"><a href="#入门教程" class="headerlink" title="入门教程"></a>入门教程</h3><ol>
 <li>下载好Python后有自带文档</li>
+<li><a href="https://www.runoob.com/python/python-tutorial.html" target="_blank" rel="noopener">python菜鸟教程</a></li>
 <li>百度一下，你就知道。不行可以选择 <a href="cn.bing.com">必应</a></li>
 <li>网易公开课，我选择的是南京大学的 Python玩转数据，用手机app才能看，建议观看 1-25集和43-50集。 1.5倍速。</li>
 <li>爬虫（下面示例）</li>
 <li>Pygame库的使用（<del>PY游戏</del>，那也才刺激了吧0.0）</li>
+<li><a href="https://github.com/jackfrued/Python-100-Days" target="_blank" rel="noopener">100天学会Python</a></li>
+<li><a href="https://github.com/ageitgey/face_recognition" target="_blank" rel="noopener">人脸识别</a></li>
 </ol>
 <p>基本语法掌握了之后就要掌握类了，Python的类挺有趣的，哈哈.类中写得变量是类的属性，而每个对象的属性要加self.的，然后方法里面的变量是方法内部临时变量。</p>
 <h3 id="爬虫示例"><a href="#爬虫示例" class="headerlink" title="爬虫示例"></a>爬虫示例</h3><p>总结爬虫方法：</p>
@@ -433,22 +437,18 @@
 
 <h3 id="代码规范"><a href="#代码规范" class="headerlink" title="代码规范"></a>代码规范</h3><p>每个包都有各自的代码规范，使用的时候注意一点可以省很多麻烦。个人比较喜欢的代码规范方式：</p>
 <ol start="0">
-<li><p>逗号后面加空格 <code>,</code></p>
-</li>
-<li><p>类的手写字母大写，例如：<code>class MyHoney():</code></p>
-</li>
-<li><p>函数或者类的方法全小写</p>
-</li>
-<li><p>变量或者类中属性首单词字母小写，后面单词首部大写，例如 <code>myName</code></p>
-</li>
-<li><p>常量全大写</p>
-</li>
-<li><p>个人不是很喜欢用下划线，不过也是一个不错的选择</p>
-</li>
+<li>逗号后面加空格 <code>,</code></li>
+<li>类的手写字母大写，例如：<code>class MyHoney():</code></li>
+<li>函数或者类的方法全小写</li>
+<li>变量或者类中属性首单词字母小写，后面单词首部大写，例如 <code>myName</code></li>
+<li>常量全大写</li>
+<li>个人不是很喜欢用下划线，不过也是一个不错的选择</li>
+<li>函数，类中方法，模块隔行显示</li>
 </ol>
 <h3 id="python-语言习惯"><a href="#python-语言习惯" class="headerlink" title="python 语言习惯"></a>python 语言习惯</h3><ol>
 <li>多用 <code>in, try except, enumerate, split join zip</code> 等语句</li>
 <li>能用tab绝不用空格。</li>
+<li>数学表达式多用lambda表达式</li>
 </ol>
 <h3 id="日常表白zly"><a href="#日常表白zly" class="headerlink" title="日常表白zly"></a>日常表白zly</h3><blockquote>
 <p>last update:  2020年3月2日10:04:30</p>
