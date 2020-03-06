@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Math,Matrix,特征多项式," />
+  <meta name="keywords" content="Math,Matrix," />
 
 
 
@@ -105,19 +105,18 @@
 
 
 
-<meta name="description" content="大一学了矩阵之后,一直很喜欢它，因为它形式简洁优美，又不缺乏技巧，是抽象和具体的桥梁，又有其实用性，成为现代数学最基础的工具之一。个人认为，矩阵中最优美的定理非Cayley-Hamilton定理（矩阵的特征多项式是它的一个化零多项式）莫属了。  交换环上的矩阵都有Cayley-Hamilton定理成立">
+<meta name="description" content="在研究一个数学对象时，我们经常会对它进行分类。比如我们通常把数分为：实数，虚数；实数又分成有理数，无理数；当然也有按照正负来分的。还有整数分成素数（也叫质数）和合数，等等。现在我们谈谈矩阵的分类，以下默认矩阵是方的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cayley-Hamilton定理">
-<meta property="og:url" content="http://yoursite.com/cayleyHamiltonTheorem/index.html">
+<meta property="og:title" content="schur定理">
+<meta property="og:url" content="http://yoursite.com/schurTheorem/index.html">
 <meta property="og:site_name" content="521zly">
-<meta property="og:description" content="大一学了矩阵之后,一直很喜欢它，因为它形式简洁优美，又不缺乏技巧，是抽象和具体的桥梁，又有其实用性，成为现代数学最基础的工具之一。个人认为，矩阵中最优美的定理非Cayley-Hamilton定理（矩阵的特征多项式是它的一个化零多项式）莫属了。  交换环上的矩阵都有Cayley-Hamilton定理成立">
+<meta property="og:description" content="在研究一个数学对象时，我们经常会对它进行分类。比如我们通常把数分为：实数，虚数；实数又分成有理数，无理数；当然也有按照正负来分的。还有整数分成素数（也叫质数）和合数，等等。现在我们谈谈矩阵的分类，以下默认矩阵是方的。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2015-12-16T04:37:33.000Z">
-<meta property="article:modified_time" content="2020-03-06T16:28:28.512Z">
+<meta property="article:published_time" content="2015-12-16T14:10:14.000Z">
+<meta property="article:modified_time" content="2020-03-06T16:49:31.487Z">
 <meta property="article:author" content="茶茶白">
 <meta property="article:tag" content="Math">
 <meta property="article:tag" content="Matrix">
-<meta property="article:tag" content="特征多项式">
 <meta name="twitter:card" content="summary">
 
 
@@ -146,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/cayleyHamiltonTheorem/"/>
+  <link rel="canonical" href="http://yoursite.com/schurTheorem/"/>
 
 
 
 
 
-  <title> Cayley-Hamilton定理 | 521zly </title>
+  <title> schur定理 | 521zly </title>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -301,7 +300,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/cayleyHamiltonTheorem/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/schurTheorem/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="茶茶白">
@@ -322,7 +321,7 @@
             
             
               
-                Cayley-Hamilton定理
+                schur定理
               
             
           </h1>
@@ -337,7 +336,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-16T12:37:33+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-16T22:10:14+08:00">
                 2015-12-16
               </time>
             
@@ -356,7 +355,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/cayleyHamiltonTheorem/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/schurTheorem/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -383,43 +382,84 @@
       
 
       
-        <p>大一学了矩阵之后,一直很喜欢它，因为它形式简洁优美，又不缺乏技巧，是抽象和具体的桥梁，又有其实用性，成为现代数学最基础的工具之一。个人认为，矩阵中最优美的定理非Cayley-Hamilton定理（矩阵的特征多项式是它的一个化零多项式）莫属了。</p>
+        <p>在研究一个数学对象时，我们经常会对它进行分类。比如我们通常把数分为：实数，虚数；实数又分成有理数，无理数；当然也有按照正负来分的。还有整数分成素数（也叫质数）和合数，等等。现在我们谈谈矩阵的分类，以下默认矩阵是方的。<br><a id="more"></a></p>
+<h3 id="数学中分类一般是按照等价关系划分等价类的。"><a href="#数学中分类一般是按照等价关系划分等价类的。" class="headerlink" title="数学中分类一般是按照等价关系划分等价类的。"></a>数学中分类一般是按照等价关系划分等价类的。</h3><p>所谓等价关系其实就是满足反身性，对称性，传递性的二元关系（总结一下我们等于号的全部性质就知道了）<br>矩阵中最常见的三种等价关系分别是</p>
+<ol>
+<li>相抵等价—-初等变换</li>
+<li>合同等价—-合同变换</li>
+<li>相似等价—-相似变换</li>
+</ol>
+<p>相抵等价完全由秩确定，合同变换我们一般只针对实对称矩阵处理。相似变化是我们讨论最多的也是最复杂的，我们总想把复杂的东西变简单，对于一个矩阵我们总想做变换把它变成最简单形式（称为标准型），相抵等价的标准型和对称矩阵合同等价的标准型都十分简单，但是很不幸的也是最幸运的是，并非所有的矩阵都可以相似于对角阵，相似变换标准型称为若尔当标准型，以纪念若尔当对矩阵相似变换所做的贡献。</p>
+<p>然而今天主题并不是上面的任何一种，而是由伟大的数学家<a href="https://en.wikipedia.org/wiki/Issai_Schur" target="_blank" rel="noopener">Issai Schur</a>提出的酉相似，酉变换的概念和相应定理。</p>
+<h3 id="任意复方阵酉相似于上三角矩阵"><a href="#任意复方阵酉相似于上三角矩阵" class="headerlink" title="任意复方阵酉相似于上三角矩阵"></a>任意复方阵酉相似于上三角矩阵</h3><h4 id="酉矩阵和酉相似"><a href="#酉矩阵和酉相似" class="headerlink" title="酉矩阵和酉相似"></a>酉矩阵和酉相似</h4><p>一个矩阵称为酉矩阵，如果它的共轭转置是它的逆。复矩阵$A$与$B$称为酉相似的，如果存在酉矩阵U使得 $B=U^<em> AU$ ，这里$U^</em>$表示$U$的共轭转置。</p>
+<h4 id="定理1-对任意复方阵-A-，存在酉矩阵-U-使得"><a href="#定理1-对任意复方阵-A-，存在酉矩阵-U-使得" class="headerlink" title="定理1.  对任意复方阵$A$，存在酉矩阵$U$使得"></a>定理1.  <strong>对任意复方阵$A$，存在酉矩阵$U$使得</strong></h4><script type="math/tex; mode=display">
+A = U \left( \begin{matrix} 
+\lambda_1 & * & * & * \\
+ & \lambda_2 & * & * \\
+ & & \ddots & * \\
+ & & &  \lambda_n
+\end{matrix} \right)U^*</script><p>其中$\lambda_1,\lambda_2,\cdots,\lambda_n$ 为$A$的全部特征值。</p>
+<p><strong>Proof</strong>：设 $\alpha_1$ 是$A$的特征值 $\lambda_1$ 对应的特征向量，将 $\alpha_1$ 扩充为$\mathbf{C}^n$的一组标准正交基 $P=(\alpha_1,\alpha_2,\cdots,\alpha_n)$ ，则$ A = P \left( \begin{matrix} \lambda_1 &amp; <em> \\ \mathbf{0} &amp; B \end{matrix} \right)P^</em> $ 。对复矩阵的阶数应用数学归纳法，存在$n-1$阶酉矩阵$Q$使得</p>
+<script type="math/tex; mode=display">
+B = Q \left( \begin{matrix} \lambda_2 & * & *  \\
+ & \ddots & * \\
+ & & \lambda_n \end{matrix} \right)Q^*</script><p>因此 </p>
+<script type="math/tex; mode=display">
+A = U \left( \begin{matrix} 
+\lambda_1 & * & * & * \\
+ & \lambda_2 & * & * \\
+ & & \ddots & * \\
+ & & &  \lambda_n
+\end{matrix} \right)U^*</script><p>其中$ U = P \left( \begin{matrix} 1 &amp;  \\ &amp; Q \end{matrix} \right) $是$n$阶酉矩阵，证毕。</p>
+<h3 id="矩阵酉相似于对角阵当且仅当它是正规矩阵"><a href="#矩阵酉相似于对角阵当且仅当它是正规矩阵" class="headerlink" title="矩阵酉相似于对角阵当且仅当它是正规矩阵"></a>矩阵酉相似于对角阵当且仅当它是正规矩阵</h3><h4 id="正规矩阵"><a href="#正规矩阵" class="headerlink" title="正规矩阵"></a>正规矩阵</h4><p>矩阵$A$称为正规矩阵(_normal matrix_)，如果$ A^ <em>A=AA^ </em> $。显然酉矩阵，Hermite阵，反Hermite阵都是正规矩阵。</p>
+<h4 id="定理2（Issai-Schur）矩阵A酉相似于对角阵的充分必要条件是A是正规矩阵。"><a href="#定理2（Issai-Schur）矩阵A酉相似于对角阵的充分必要条件是A是正规矩阵。" class="headerlink" title="定理2（Issai Schur）矩阵A酉相似于对角阵的充分必要条件是A是正规矩阵。"></a>定理2（Issai Schur）矩阵A酉相似于对角阵的充分必要条件是A是正规矩阵。</h4><p><strong>Proof</strong>：必要性显然，下证明充分性：</p>
+<p>由定理1知，存在酉矩阵$U$使得：</p>
+<script type="math/tex; mode=display">
+A = U \left( \begin{matrix} 
+\lambda_1 & * & * & * \\
+ & \lambda_2 & * & * \\
+ & & \ddots & * \\
+ & & &  \lambda_n
+\end{matrix} \right)U^*</script><p>若A是正规矩阵，则有</p>
+<script type="math/tex; mode=display">
+\left( \begin{matrix} 
+\overline{\lambda_1} &  &  &  \\
+* & \overline{\lambda_2} &  &  \\
+* & * & \ddots & \\
+* & * & * &  \overline{\lambda_n}
+\end{matrix} \right)
+
+\left( \begin{matrix} 
+\lambda_1 & * & * & * \\
+ & \lambda_2 & * & * \\
+ & & \ddots & * \\
+ & & &  \lambda_n
+\end{matrix} \right)
+=
+\left( \begin{matrix} 
+\lambda_1 & * & * & * \\
+ & \lambda_2 & * & * \\
+ & & \ddots & * \\
+ & & &  \lambda_n
+\end{matrix} \right)
+\left( \begin{matrix} 
+\overline{\lambda_1} &  &  &  \\
+* & \overline{\lambda_2} &  &  \\
+* & * & \ddots & \\
+* & * & * &  \overline{\lambda_n}
+\end{matrix} \right)</script><p>考虑矩阵两端$(1,1)$位置得到:</p>
+<script type="math/tex; mode=display">
+\overline{\lambda_1}\lambda_1 ＝ \lambda_1 \overline{\lambda_1}+\sigma^2</script><p>其中$ \sigma^2 $是上三角矩阵</p>
+<script type="math/tex; mode=display">
+\left( \begin{matrix} 
+\lambda_1 & * & * & * \\
+ & \lambda_2 & * & * \\
+ & & \ddots & * \\
+ & & &  \lambda_n
+\end{matrix} \right)</script><p>的第一行的非对角元绝对值之平方和，因此由$ \sigma^2 $可知上三角矩阵的第一行非对角元全为0，类似的考察矩阵两端$(2,2)$的位置，一直到$(n,n)$的位置即可知道上面矩阵是对角阵，证毕。</p>
+<p>上述定理给出了酉相似于对角型的充分必要条件，而且条件十分易于判断。整个过程简洁优美。另外由于酉矩阵条件数恒定为1，有其数值稳定性，因此经常用于实际计算中，例如QR方法涉及的两个矩阵变换Househoulder变换和Givens变换都是酉变换。</p>
 <blockquote>
-<p>交换环上的矩阵都有Cayley-Hamilton定理成立</p>
-</blockquote>
-<a id="more"></a>
-<p>详细表述和证明如下：</p>
-<script type="math/tex; mode=display">
-\phi(\lambda)=det(\lambda I - A) = a_n \lambda^n + \cdots + a_1 \lambda + a_0</script><p>设$\lambda I - A$的伴随矩阵为$B$，则$B$中元素为关于$\lambda$的次数小于$n$的多项式，不妨设</p>
-<script type="math/tex; mode=display">
-B = \lambda^{n-1} B_ {n-1} + \cdots + \lambda B_1 + B_0</script><p>所以</p>
-<script type="math/tex; mode=display">
-(\lambda I - A)B = \lambda^n B_ {n-1} + \lambda^{n-1} (B_ {n-2} - AB_ {n-1})
-+ \cdots + \lambda (B_0 - AB_1) - AB_0</script><p>又因为B是A的伴随矩阵，我们有 $ (\lambda I - A)B = det(\lambda I - A) $</p>
-<p>比较系数得到：</p>
-<script type="math/tex; mode=display">
-\left\{ 
-\begin{array}{l} 
-B_ {n-1} = a_n I \\
-B_ {n-2} - AB_ {n-1} = a_{n-1} I \\
-\cdots \\
-B_0 - AB_1 = a_1 I \\
--AB_0 = a_0 I
-\end{array} \right.</script><p>对上式分别左乘$ A^n,A^{n-1},\cdots,A,I$得到：</p>
-<script type="math/tex; mode=display">
-\left\{ 
-\begin{array}{l} 
-A^n B_ {n-1} = a_n A^n \\
-A^{n-1} B_ {n-2} - A^n B_ {n-1} = a_{n-1} A^{n-1} \\
-\cdots \\
-A B_0 - A^2 B_1 = a_1 A \\
--AB_0 = a_0 I
-\end{array} \right.</script><p>再将上式相加得到最终结果</p>
-<script type="math/tex; mode=display">
-\phi(A)= a_ n A^n + a_{n-1} A^{n-1} + \cdots + a_1 A +
-a_0 I = \mathbf{0}</script><p>上述定理优美在于从形式上，$\phi(\lambda)=det(\lambda I - A)$ 取 $\lambda = A$ 带入恰好也是0（注意数字0和零矩阵的差别）<strong>虽然说这样做是完全没有道理</strong>。作为直接推论我们知道，一个n阶方阵的任何次方都可以被它的不超过n次的幂线性表出。</p>
-<blockquote>
-<p>Last update: 2020年3月6日23:59:27</p>
+<p>Last update: </p>
 </blockquote>
 
       
@@ -454,8 +494,6 @@ a_0 I = \mathbf{0}</script><p>上述定理优美在于从形式上，$\phi(\lamb
           
             <a href="/tags/Matrix/" rel="tag"># Matrix</a>
           
-            <a href="/tags/%E7%89%B9%E5%BE%81%E5%A4%9A%E9%A1%B9%E5%BC%8F/" rel="tag"># 特征多项式</a>
-          
         </div>
       
 
@@ -467,8 +505,8 @@ a_0 I = \mathbf{0}</script><p>上述定理优美在于从形式上，$\phi(\lamb
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/exampleOfFunctionOnlyContinueAtOnePoint/" rel="next" title="仅在一点连续的函数例子">
-                <i class="fa fa-chevron-left"></i> 仅在一点连续的函数例子
+              <a href="/cayleyHamiltonTheorem/" rel="next" title="Cayley-Hamilton定理">
+                <i class="fa fa-chevron-left"></i> Cayley-Hamilton定理
               </a>
             
           </div>
@@ -477,8 +515,8 @@ a_0 I = \mathbf{0}</script><p>上述定理优美在于从形式上，$\phi(\lamb
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/schurTheorem/" rel="prev" title="schur定理">
-                schur定理 <i class="fa fa-chevron-right"></i>
+              <a href="/python-learning/" rel="prev" title="python入门">
+                python入门 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -671,26 +709,6 @@ a_0 I = \mathbf{0}</script><p>上述定理优美在于从形式上，$\phi(\lamb
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
