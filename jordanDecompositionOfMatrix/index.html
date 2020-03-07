@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="Math," />
 
 
 
@@ -105,17 +105,17 @@
 
 
 
-<meta name="description" content="一些小技巧的汇总方便查阅hexo功能介绍 内部引用： 创建新文件夹： hexo new page newdir hexo 中渲染mathjax： 看这里">
+<meta name="description" content="最近在整理 Lie Algebra 内容时，里面提到了Jordan分解，这里就详细介绍并证明几个相关结果。  若矩阵 $A,B$ 可交换，则它们有公共特征向量。 若矩阵 $A,B$ 可以对角化，则它们可以同时对角化，当且仅当 $A,B$ 交换 每一个矩阵 $A$ 都可以唯一分解成 $A&#x3D;B+C$, 其中 $B$ 可对角化，$C$ 幂零。且 $B,C$ 都可以写成 $A$ 的无常数项的多项式。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="杂记">
-<meta property="og:url" content="http://yoursite.com/note/index.html">
+<meta property="og:title" content="矩阵的Jordan分解">
+<meta property="og:url" content="http://yoursite.com/jordanDecompositionOfMatrix/index.html">
 <meta property="og:site_name" content="521zly">
-<meta property="og:description" content="一些小技巧的汇总方便查阅hexo功能介绍 内部引用： 创建新文件夹： hexo new page newdir hexo 中渲染mathjax： 看这里">
+<meta property="og:description" content="最近在整理 Lie Algebra 内容时，里面提到了Jordan分解，这里就详细介绍并证明几个相关结果。  若矩阵 $A,B$ 可交换，则它们有公共特征向量。 若矩阵 $A,B$ 可以对角化，则它们可以同时对角化，当且仅当 $A,B$ 交换 每一个矩阵 $A$ 都可以唯一分解成 $A&#x3D;B+C$, 其中 $B$ 可对角化，$C$ 幂零。且 $B,C$ 都可以写成 $A$ 的无常数项的多项式。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-06T12:51:42.000Z">
-<meta property="article:modified_time" content="2020-03-06T16:24:46.686Z">
+<meta property="article:published_time" content="2016-04-08T08:20:49.000Z">
+<meta property="article:modified_time" content="2020-03-07T00:44:06.567Z">
 <meta property="article:author" content="茶茶白">
-<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
 
 
@@ -144,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/note/"/>
+  <link rel="canonical" href="http://yoursite.com/jordanDecompositionOfMatrix/"/>
 
 
 
 
 
-  <title> 杂记 | 521zly </title>
+  <title> 矩阵的Jordan分解 | 521zly </title>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -299,7 +299,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/note/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/jordanDecompositionOfMatrix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="茶茶白">
@@ -320,7 +320,7 @@
             
             
               
-                杂记
+                矩阵的Jordan分解
               
             
           </h1>
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-06T20:51:42+08:00">
-                2020-03-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-08T16:20:49+08:00">
+                2016-04-08
               </time>
             
 
@@ -354,7 +354,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/note/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/jordanDecompositionOfMatrix/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -381,16 +381,34 @@
       
 
       
-        <h3 id="一些小技巧的汇总方便查阅"><a href="#一些小技巧的汇总方便查阅" class="headerlink" title="一些小技巧的汇总方便查阅"></a>一些小技巧的汇总方便查阅</h3><h4 id="hexo功能介绍"><a href="#hexo功能介绍" class="headerlink" title="hexo功能介绍"></a>hexo功能介绍</h4><blockquote>
-<p>内部引用：</p>
-<p>创建新文件夹： hexo new page newdir</p>
-<p>hexo 中渲染mathjax： <a href="https://www.jianshu.com/p/7ab21c7f0674" target="_blank" rel="noopener">看这里</a></p>
-</blockquote>
+        <p>最近在整理 Lie Algebra 内容时，里面提到了Jordan分解，这里就详细介绍并证明几个相关结果。</p>
+<ol>
+<li>若矩阵 $A,B$ 可交换，则它们有公共特征向量。</li>
+<li>若矩阵 $A,B$ 可以对角化，则它们可以同时对角化，当且仅当 $A,B$ 交换</li>
+<li>每一个矩阵 $A$ 都可以唯一分解成 $A=B+C$, 其中 $B$ 可对角化，$C$ 幂零。且 $B,C$ 都可以写成 $A$ 的无常数项的多项式。</li>
+</ol>
 <a id="more"></a>
-<h4 id="nmp安装国内镜像"><a href="#nmp安装国内镜像" class="headerlink" title="nmp安装国内镜像:"></a>nmp安装国内镜像:</h4><p><code>npm config set registry https://registry.npm.taobao.org</code></p>
-<h4 id="pip安装的国内镜像在后面加-也可以一劳永逸，就是麻烦了点-："><a href="#pip安装的国内镜像在后面加-也可以一劳永逸，就是麻烦了点-：" class="headerlink" title="pip安装的国内镜像在后面加(也可以一劳永逸，就是麻烦了点)："></a>pip安装的国内镜像在后面加(也可以<a href="https://www.cnblogs.com/cqliu/p/11131092.html" target="_blank" rel="noopener">一劳永逸</a>，就是麻烦了点)：</h4><p><code>-i https://pypi.tuna.tsinghua.edu.cn/simple</code></p>
+<p>下面证明这三个结果并给出说明其意义。</p>
+<h3 id="若矩阵-A-B-可交换，则它们有公共特征向量。"><a href="#若矩阵-A-B-可交换，则它们有公共特征向量。" class="headerlink" title="若矩阵 $A,B$ 可交换，则它们有公共特征向量。"></a>若矩阵 $A,B$ 可交换，则它们有公共特征向量。</h3><p><strong>证明</strong>：我们设 $V$ 为 $n$ 阶列向量全体。设 $\lambda$ 为 $B$ 的一个特征值。设 </p>
+<script type="math/tex; mode=display">
+W = \lbrace x \in V \;|\; Bx = \lambda x \rbrace</script><p>则对任意 $x \in W$,</p>
+<script type="math/tex; mode=display">
+B(Ax) = A(Bx)=A(\lambda x)=\lambda(Ax)</script><p>即 $Ax \in W$。即 $W$ 是 $A$ 的不变子空间，因此，$A$ 在 $W$ 中有特征值 $\mu$ 对应的特征向量 $v$ 即为所求。</p>
+<h3 id="若矩阵-A-B-可以对角化，则它们可以同时对角化，当且仅当-A-B-交换"><a href="#若矩阵-A-B-可以对角化，则它们可以同时对角化，当且仅当-A-B-交换" class="headerlink" title="若矩阵 $A,B$ 可以对角化，则它们可以同时对角化，当且仅当 $A,B$ 交换."></a>若矩阵 $A,B$ 可以对角化，则它们可以同时对角化，当且仅当 $A,B$ 交换.</h3><p><strong>证明</strong>：$\rightarrow$ 是显然的。现证 $\leftarrow$ 若 $A,B$ 交换。<br>由条件知，存在可逆矩阵 $P$ 使得 $P^{-1}AP = diag(a_1 E_{n_1},\cdots,a_s E_{n_s})$。由 $A,B$ 交换知，$P^{-1}AP P^{-1}BP = P^{-1}BP P^{-1}AP$。因此</p>
+<script type="math/tex; mode=display">
+P^{-1}BP = \left(\begin{matrix} 
+B_1 \\  & B_2 \\ & & \ddots \\ & & & B_s 
+\end{matrix}\right)</script><p>因为 $B$ 可对角化，因此 $B$ 的最小多项式无重根。所以 $B_i$ 的最小多项式也无重根。因此 $B_i$ 可对角化，存在可逆矩阵 $Q_i$ 使得 $Q_i^{-1}B_iQ_i$ 为对角阵。令 $Q = diag(Q_1,\cdots,Q_s)$,$T=PQ$，则 $T^{-1}BT$ 为对角阵。$T^{-1}AT = diag(Q_1^{-1},\cdots,Q_s^{-1})diag(a_1 E_{n_1},\cdots,a_s E_{n_s}) diag(Q_1,\cdots,Q_s) = diag(a_1 E_{n_1},\cdots,a_s E_{n_s})$<br>$T$ 即为所求。</p>
+<h3 id="Jodan分解"><a href="#Jodan分解" class="headerlink" title="Jodan分解"></a>Jodan分解</h3><p>每一个矩阵 $A$ 都可以唯一分解成 $A=B+C$, 其中 $B$ 可对角化，$C$ 幂零。且 $B,C$ 都可以写成 $A$ 的无常数项的多项式。<br>证明：首先对任意矩阵，我们有Jordan标准型：对任意矩阵 $A$，存在可逆矩阵 $P$ 使得</p>
+<script type="math/tex; mode=display">
+P^{-1} A P = \left(\begin{matrix} J_1(\lambda_1) \\  & J_2(\lambda_2) \\ & & \ddots \\ & & & J_s(\lambda_s) \end{matrix}\right) = \left(\begin{matrix} \lambda_1 E_{n_1} \\  & \lambda_2 E_{n_2} \\ & & \ddots \\ & & & \lambda_s E_{n_s} \end{matrix}\right) + \left(\begin{matrix} J_1(0) \\  & J_2(0) \\ & & \ddots \\ & & & J_s(0) \end{matrix} \right)</script><p>由于 $ J_i(\lambda_i) $ 的化零多项式为 $f_i(\lambda) = |\lambda -  J_1(\lambda_1)|$。由中国剩余定理知。存在多项式 $f(\lambda)$ 满足 $f(\lambda) = \lambda_i (mod \; f_i),i=1,\cdots,s$ 且 $f(\lambda)= 0 (mod \lambda)$。此时</p>
+<script type="math/tex; mode=display">
+P^{-1} A P = \left(\begin{matrix} \lambda_1 E_{n_1} \\  & \lambda_2 E_{n_2} \\ & & \ddots \\ & & & \lambda_s E_{n_s} \end{matrix}\right) 
+令 B = P \left(\begin{matrix} \lambda_1 E_{n_1} \\  & \lambda_2 E_{n_2} \\ & & \ddots \\ & & & \lambda_s E_{n_s} \end{matrix}\right) P^{-1}</script><p>则 $B=f(A)，C=A-B$ 即为所求。上面的$B,C$ 是唯一的，因为，若存在$B_1,C_1$ 也满足上述条件，则 $A,B,C,B_1,C_1$彼此交换，$B-B_1 = C_1 - C$ 是幂零的，因此 $B=B_1,C=C_1$。</p>
+<p>Jordan 标准型将矩阵化成简单形式使得我们考虑很多问题都只需在标准型的情形分析。很多不明显的结论都能很清楚的给出答案。<br>对于Jordan分解，我们可以将一个矩阵分为所谓的半单部分和幂零部分，而由第二条结论知道，如果 $A_1,A_2$ 可交换，那么$A_1+A_2$ 的半单部分即为 $B_1+B_2$。这是很好的性质。或者说的更明了一点就是，如果 $A,B$ 可交换，且可以对角化，则$A+B$ 也可以对角化。</p>
 <blockquote>
-<p>Last update: 2020年3月6日21:23:16</p>
+<p>想到写这些完全是因为 Lie Algebra 忘掉 Lie 括号本身就是一个线性空间。</p>
+<p>Last update: </p>
 </blockquote>
 
       
@@ -421,7 +439,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/Math/" rel="tag"># Math</a>
           
         </div>
       
@@ -434,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/pillow-learning/" rel="next" title="pillow-learning">
-                <i class="fa fa-chevron-left"></i> pillow-learning
+              <a href="/finiteDomainIsField/" rel="next" title="有限整环是域">
+                <i class="fa fa-chevron-left"></i> 有限整环是域
               </a>
             
           </div>
@@ -444,8 +462,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/zariskiTopologyOfRing/" rel="prev" title="环的Zariski拓扑(素谱)">
-                环的Zariski拓扑(素谱) <i class="fa fa-chevron-right"></i>
+              <a href="/python-learning/" rel="prev" title="python入门">
+                python入门 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -638,6 +656,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

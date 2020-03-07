@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="Math," />
 
 
 
@@ -105,17 +105,17 @@
 
 
 
-<meta name="description" content="一些小技巧的汇总方便查阅hexo功能介绍 内部引用： 创建新文件夹： hexo new page newdir hexo 中渲染mathjax： 看这里">
+<meta name="description" content="设 $A$ 是(交换)环。令 $X$ 为 $A$ 的素理想全体，定义 $V(E)$ 为 $A$ 中包含 $E$ 的素理想全体，则将所有 $V(E)$ 看做闭集，它满足拓扑空间三条公理，即构成了拓扑，该拓扑称作 Zariski 拓扑，这个拓扑空间叫做环$A$的素谱，记作 $Spec(A)$。有了拓扑，我们自然要考虑 1.集合的内部、闭包。2.拓扑的基，拓扑的分离性，紧性，3.空间的连通性，不可约性，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="杂记">
-<meta property="og:url" content="http://yoursite.com/note/index.html">
+<meta property="og:title" content="环的Zariski拓扑(素谱)">
+<meta property="og:url" content="http://yoursite.com/zariskiTopologyOfRing/index.html">
 <meta property="og:site_name" content="521zly">
-<meta property="og:description" content="一些小技巧的汇总方便查阅hexo功能介绍 内部引用： 创建新文件夹： hexo new page newdir hexo 中渲染mathjax： 看这里">
+<meta property="og:description" content="设 $A$ 是(交换)环。令 $X$ 为 $A$ 的素理想全体，定义 $V(E)$ 为 $A$ 中包含 $E$ 的素理想全体，则将所有 $V(E)$ 看做闭集，它满足拓扑空间三条公理，即构成了拓扑，该拓扑称作 Zariski 拓扑，这个拓扑空间叫做环$A$的素谱，记作 $Spec(A)$。有了拓扑，我们自然要考虑 1.集合的内部、闭包。2.拓扑的基，拓扑的分离性，紧性，3.空间的连通性，不可约性，">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-06T12:51:42.000Z">
-<meta property="article:modified_time" content="2020-03-06T16:24:46.686Z">
+<meta property="article:published_time" content="2020-03-07T00:47:16.000Z">
+<meta property="article:modified_time" content="2020-03-07T00:52:01.571Z">
 <meta property="article:author" content="茶茶白">
-<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
 
 
@@ -144,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/note/"/>
+  <link rel="canonical" href="http://yoursite.com/zariskiTopologyOfRing/"/>
 
 
 
 
 
-  <title> 杂记 | 521zly </title>
+  <title> 环的Zariski拓扑(素谱) | 521zly </title>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -299,7 +299,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/note/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/zariskiTopologyOfRing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="茶茶白">
@@ -320,7 +320,7 @@
             
             
               
-                杂记
+                环的Zariski拓扑(素谱)
               
             
           </h1>
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-06T20:51:42+08:00">
-                2020-03-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-07T08:47:16+08:00">
+                2020-03-07
               </time>
             
 
@@ -354,7 +354,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/note/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/zariskiTopologyOfRing/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -381,16 +381,59 @@
       
 
       
-        <h3 id="一些小技巧的汇总方便查阅"><a href="#一些小技巧的汇总方便查阅" class="headerlink" title="一些小技巧的汇总方便查阅"></a>一些小技巧的汇总方便查阅</h3><h4 id="hexo功能介绍"><a href="#hexo功能介绍" class="headerlink" title="hexo功能介绍"></a>hexo功能介绍</h4><blockquote>
-<p>内部引用：</p>
-<p>创建新文件夹： hexo new page newdir</p>
-<p>hexo 中渲染mathjax： <a href="https://www.jianshu.com/p/7ab21c7f0674" target="_blank" rel="noopener">看这里</a></p>
+        <p>设 $A$ 是(交换)环。令 $X$ 为 $A$ 的素理想全体，定义 $V(E)$ 为 $A$ 中包含 $E$ 的素理想全体，则将所有 $V(E)$ 看做闭集，它满足拓扑空间三条公理，即构成了拓扑，该拓扑称作 Zariski 拓扑，这个拓扑空间叫做环$A$的素谱，记作 $Spec(A)$。<br>有了拓扑，我们自然要考虑 1.集合的内部、闭包。2.拓扑的基，拓扑的分离性，紧性，3.空间的连通性，不可约性，4.拓扑空间的连续函数等等概念在这个具体拓扑下的样子。<br><a id="more"></a></p>
+<h2 id="Zariski-拓扑"><a href="#Zariski-拓扑" class="headerlink" title="Zariski 拓扑"></a>Zariski 拓扑</h2><p>要证明 $T = \lbrace V(E),E \subset A \rbrace$ 作为闭集确实构成了一个拓扑，即证明 $\emptyset \in T,X \in T$，且 $T$ 中任意并，有限交运算是封闭的。而显然我们有</p>
+<ol>
+<li>$V(0)=X,V(A)=\emptyset$</li>
+<li>$\cap_{i \in I} V(E_i) = V(\cup_{i \in I}E_i)$</li>
+<li>为说明 $V(E_1) \cap V(E_2) \in T$ 我们需要一些准备工作。</li>
+</ol>
+<p>设 $I(E)$ 为由 $E$ 生成的理想，定义</p>
+<script type="math/tex; mode=display">
+\sqrt{\alpha} = \lbrace x\in A : x^n \in \alpha \rbrace</script><p>则显然我们有</p>
+<ol>
+<li>$\alpha \subset \sqrt{\alpha} = \sqrt{\sqrt{\alpha}}$</li>
+<li>$\sqrt{\alpha \beta} = \sqrt{\alpha \cap \beta} = \sqrt{\alpha} \cap \sqrt{\beta}$</li>
+<li>$\sqrt{\alpha}=(1) \Leftrightarrow \sqrt{\alpha}$</li>
+<li>$\sqrt{\alpha+\beta} = \sqrt{ \sqrt{\alpha}+\sqrt{\beta} }$</li>
+<li>若 $p$ 是素理想，$\sqrt{p} = p$。</li>
+<li>$V(E)=V(I(E))=V(\sqrt{I(E)})$</li>
+<li>$V(\alpha \cap \beta)=V(\alpha \beta)=V(\alpha) \cup V(\beta)$</li>
+<li>$\cap_{p \in V(\alpha)} p = \sqrt{\alpha}$ </li>
+<li>$V(E_1) = V(E_2) \Leftrightarrow \sqrt{I(E_1)} = \sqrt{I(E_2)}$</li>
+</ol>
+<p>因此，$V(E_1) \cap V(E_2) = V(I(E_1)) \cap V(I(E_2)) = V(I(E_1) \cap I(E_2)) \in T$。这说明它确实满足拓扑空间的三条公理。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>有了拓扑之后，我们自然用具体的例子来看一下，这个拓扑大致长什么样子。<br>考虑 $Spec(\mathbb{Z})$ ，此时 $X = \lbrace (p) : p\mbox{ is prime } \rbrace \cup (0)$。可以看出，包含 $(0)$ 闭集仅有 $X$，除 $(0)$ 外，$X$ 中的单点集全是闭集。因此 $Spec(\mathbb{Z})$ 不是 $T_1$ 空间，由此可见，一般地，$Spec(A)$ 不是 $T_1$ 空间，即此拓扑的分离性很差。</p>
+<h2 id="内部和闭包"><a href="#内部和闭包" class="headerlink" title="内部和闭包"></a>内部和闭包</h2><p>因为在一般的拓扑理论中我们有 $A^{o} = A^{c-c}$，因此，我们只需搞清楚 $A^{o}$ 和 $A^{-}$( 或记作$\overline{A}$ )中任意一个即可，我们考虑闭包($A^{-}$)。对于 $Y \subset X$。若 $Y \subset V(E)$ 则 $\forall \; p \in Y, E \in p$,即 $ E \in \cap_{p \in Y} p$。因此 $Y \subset V(\cap_{p \in Y}) \subset V(E)$。因此 $Y^{-} = V(\cap_{p \in Y})$。<br>特别地，</p>
+<ol>
+<li>$\overline{\lbrace p_x \rbrace} = V(p_x)$</li>
+<li>$\overline{\lbrace p_x \rbrace} = \lbrace p_x \rbrace \Leftrightarrow p_x$ 是极大理想。</li>
+<li>$p_y \in \overline{\lbrace p_x \rbrace} \Leftrightarrow p_x \subset p_y$</li>
+<li>$X$ 是 $T_0$ 空间（$p_y \notin \overline{\lbrace p_x \rbrace}$ 或者 $p_x \notin \overline{\lbrace p_y \rbrace}$）。</li>
+</ol>
+<p>因此，这样就很清楚为何在之前的例子$Spec(\mathbb{Z})$中除$(0)$外单点集都是闭集了。有了之前的结论我们再看一下其他的例子。<br>$Spec(\mathbb{R})$：此时 $X = \lbrace 0 \rbrace$ 只有一个元素拓扑是平凡的。<br>因为 若$A$为域,则$A[x]$为ED为PID，其素理想为 $(f)$ 不可约多项式。且PID中非零素理想就是极大理想。<br>$Spec(\mathbb{C}[x])$: 此时 $X = \lbrace (x+t): t \in \mathbb{C} \rbrace \cup \lbrace (0) \rbrace$<br>$Spec(\mathbb{R}[x])$: 此时 $X = \lbrace (x+t): t \in \mathbb{R} \rbrace \cup \lbrace (x^2+ax+b): a,b \in \mathbb{R},a^2 &lt; 4b \rbrace \cup \lbrace (0) \rbrace$</p>
+<h2 id="基，紧性"><a href="#基，紧性" class="headerlink" title="基，紧性"></a>基，紧性</h2><p>由于 $V(\cup_{i \in I}E_i) = \cap_{i \in I} V(E_i)$ 我们定义 $X_E = X \setminus V(E)$。则 $X_E = \cup_{f \in E} X_f$ 这说明 $X_f,f \in A$ 确实构成了 $X$ 的一组基。$X_f$ 表示不包含 $f$ 的素理想全体。</p>
+<ol>
+<li>$X_f \cap X_g = X_{fg}$</li>
+<li>$X_f = \emptyset \Leftrightarrow f$ 是幂零的。</li>
+<li>$X_f = X \Leftrightarrow f$ 是单位。</li>
+<li>$X_f = X_g \Leftrightarrow \sqrt{(f)} = \sqrt{(g)}$</li>
+</ol>
+<h4 id="X-是拟紧的"><a href="#X-是拟紧的" class="headerlink" title="$X$ 是拟紧的"></a>$X$ 是拟紧的</h4><blockquote>
+<p>这里的拟紧,实际上就是一般点集拓扑学中的紧，在代数中紧这个概念是拟紧＋Hausdorff。</p>
 </blockquote>
-<a id="more"></a>
-<h4 id="nmp安装国内镜像"><a href="#nmp安装国内镜像" class="headerlink" title="nmp安装国内镜像:"></a>nmp安装国内镜像:</h4><p><code>npm config set registry https://registry.npm.taobao.org</code></p>
-<h4 id="pip安装的国内镜像在后面加-也可以一劳永逸，就是麻烦了点-："><a href="#pip安装的国内镜像在后面加-也可以一劳永逸，就是麻烦了点-：" class="headerlink" title="pip安装的国内镜像在后面加(也可以一劳永逸，就是麻烦了点)："></a>pip安装的国内镜像在后面加(也可以<a href="https://www.cnblogs.com/cqliu/p/11131092.html" target="_blank" rel="noopener">一劳永逸</a>，就是麻烦了点)：</h4><p><code>-i https://pypi.tuna.tsinghua.edu.cn/simple</code></p>
+<p>我们只需证明：若 $\cup_{f \in S} X_f = X$ 则存在有限并使上式成立。实际上，</p>
+<script type="math/tex; mode=display">
+\cup_{f \in S} X_f = X \Leftrightarrow V(I(S))=V(S) = \emptyset</script><p>因此 $I(S)=A$，即 $1 = \sum_{i=1}^n a_i s_i$。所以$I(s_1,\cdots,s_n) = A$，即 $\cup_{i=1}^n X_{s_i} = X$。证毕。</p>
+<h4 id="X-f-是拟紧的"><a href="#X-f-是拟紧的" class="headerlink" title="$X_f$ 是拟紧的"></a>$X_f$ 是拟紧的</h4><p>我们只需证明：若 $X_f \subset \cup_{g \in S} X_g$，则存在有限并使上式成立。实际上，</p>
+<script type="math/tex; mode=display">
+X_f \subset \cup_{g \in S} X_g  \Leftrightarrow V(\sqrt{I(S)}) = V(S) \subset V(f)</script><p>因此 $f \in \sqrt{I(S)}$，即 $f^m = \sum_{i=1}^n a_i s_i$。所以 $f^m \in I(s_1,\cdots,s_n)$即。$X_f \subset \cup_{i=1}^n X_{s_i}$。证毕。</p>
+<h4 id="任意开集-Y-subset-X-是拟紧的当且仅当-Y-可以写成有限多个-X-f-的并。"><a href="#任意开集-Y-subset-X-是拟紧的当且仅当-Y-可以写成有限多个-X-f-的并。" class="headerlink" title="任意开集 $Y \subset X$ 是拟紧的当且仅当$Y$可以写成有限多个$X_f$的并。"></a>任意开集 $Y \subset X$ 是拟紧的当且仅当$Y$可以写成有限多个$X_f$的并。</h4><p>Proof: 由 $X_f$ 是拟紧的知道，“$\Leftarrow$” 是显然的。<br>“$\Rightarrow$” 是因为存在$E \subset A$ 使得</p>
+<script type="math/tex; mode=display">
+Y = X_E = \cup_{f \in E} X_f</script><p>是 $Y$ 的一个开覆盖，由于是拟紧的，因此可以写成有限个 $X_f$ 的并，证毕。</p>
 <blockquote>
-<p>Last update: 2020年3月6日21:23:16</p>
+<p>以上结论来自Atiyah <strong>An Introduction to Coummutative Algebra</strong> 习题。内容和叙述方式完全由本人独立完成。</p>
+<p>Last update: </p>
 </blockquote>
 
       
@@ -421,7 +464,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/Math/" rel="tag"># Math</a>
           
         </div>
       
@@ -434,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/pillow-learning/" rel="next" title="pillow-learning">
-                <i class="fa fa-chevron-left"></i> pillow-learning
+              <a href="/note/" rel="next" title="杂记">
+                <i class="fa fa-chevron-left"></i> 杂记
               </a>
             
           </div>
@@ -444,8 +487,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/zariskiTopologyOfRing/" rel="prev" title="环的Zariski拓扑(素谱)">
-                环的Zariski拓扑(素谱) <i class="fa fa-chevron-right"></i>
+              <a href="/computationOfPiX/" rel="prev" title="computationOfPiX">
+                computationOfPiX <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -638,6 +681,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
