@@ -113,7 +113,7 @@
 <meta property="og:description" content="之前写过自然数方幂和公式， 这次写的目的是因为上次是从数学上完美的解决了这个问题，这次我们要从计算上完美的解决这个问题，当然这归功于我看到的一份sgtlaugh的代码。经过解读体会到其中的奥秘，特此记录。一句话，简直不敢相信。  如果有人说他能在 $O(k)$ 时空复杂度求解 $\sum_{i&#x3D;1}^n i^k$，你肯定会说这怎么可能别忽悠我了，那我只能说，因为你没看过这篇博文。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2016-05-08T13:33:14.000Z">
-<meta property="article:modified_time" content="2020-03-07T06:36:52.781Z">
+<meta property="article:modified_time" content="2020-03-07T09:02:58.283Z">
 <meta property="article:author" content="茶茶白">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="Math">
@@ -342,7 +342,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-03-07T17:02:58+08:00">
+                2020-03-07
+              </time>
             
           </span>
 
@@ -400,9 +412,6 @@ f(n) = \sum_{i=0} ^{nk} (-1)^{nk-i} f(x_i) {n \choose i}  {n-i-1 \choose nk-i }<
 <p>其实如果我们知道最终的上界，求出多个 $\mod p$ 后的答案，再用中国剩余定理貌似很不错。</p>
 </blockquote>
 <h4 id="该方法可以推广成求-sum-i-1-n-f-i-k-，其中-f-x-是多项式。具体分析即可。"><a href="#该方法可以推广成求-sum-i-1-n-f-i-k-，其中-f-x-是多项式。具体分析即可。" class="headerlink" title="该方法可以推广成求 $\sum_{i=1}^n f(i)^k$，其中$f(x)$是多项式。具体分析即可。"></a>该方法可以推广成求 $\sum_{i=1}^n f(i)^k$，其中$f(x)$是多项式。具体分析即可。</h4><p>这种情况一般很难再做到 $O(k)$ 时间复杂度，而变成了 $O(k \log k) \deg f$ 复杂度。</p>
-<blockquote>
-<p>Last update: 2020年3月7日13:59:39</p>
-</blockquote>
 
       
     </div>

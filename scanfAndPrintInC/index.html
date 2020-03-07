@@ -116,7 +116,7 @@
 <meta property="og:image" content="http://yoursite.com/scanfAndPrintInC/whitespace.png">
 <meta property="og:image" content="http://yoursite.com/scanfAndPrintInC/printf.png">
 <meta property="article:published_time" content="2016-05-11T04:10:17.000Z">
-<meta property="article:modified_time" content="2020-03-07T06:15:48.985Z">
+<meta property="article:modified_time" content="2020-03-07T09:02:12.635Z">
 <meta property="article:author" content="茶茶白">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -345,7 +345,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-03-07T17:02:12+08:00">
+                2020-03-07
+              </time>
             
           </span>
 
@@ -414,7 +426,6 @@
 <h3 id="神器：sscanf-和-sprintf"><a href="#神器：sscanf-和-sprintf" class="headerlink" title="神器：sscanf 和 sprintf"></a>神器：sscanf 和 sprintf</h3><p>不多说了，举个例子说明问题吧<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">/* sscanf example */</span></span><br><span class="line">    <span class="keyword">char</span> sentence []=<span class="string">"Rudolph is 12 years old"</span>;</span><br><span class="line">    <span class="keyword">char</span> str [<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="built_in">sscanf</span> (sentence,<span class="string">"%s %*s %d"</span>,str,&amp;i);</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">"%s -&gt; %d\n"</span>,str,i);</span><br><span class="line">    <span class="comment">/* sprintf example */</span></span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">buffer</span> [<span class="number">50</span>];</span><br><span class="line">    <span class="keyword">int</span> n, a=<span class="number">5</span>, b=<span class="number">3</span>;</span><br><span class="line">    n=<span class="built_in">sprintf</span> (<span class="built_in">buffer</span>, <span class="string">"%d plus %d is %d"</span>, a, b, a+b);</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">"[%s] is a string %d chars long\n"</span>,<span class="built_in">buffer</span>,n);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// output: </span></span><br><span class="line"><span class="comment">// Rudolph -&gt; 12</span></span><br><span class="line"><span class="comment">// [5 plus 3 is 8] is a string 13 chars long</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="最后说一个比较诡异但是可以理解的事情"><a href="#最后说一个比较诡异但是可以理解的事情" class="headerlink" title="最后说一个比较诡异但是可以理解的事情"></a>最后说一个比较诡异但是可以理解的事情</h3><blockquote>
 <p>sacnf 输入 float 和 double 时分别用 <code>%f,%lf</code>。<br>printf 输出 float 和 double 时用的都是 <code>%f</code>。</p>
-<p>Last update: 2020年3月7日14:09:25</p>
 </blockquote>
 
       
