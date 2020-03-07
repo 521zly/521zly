@@ -1,0 +1,681 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Math," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="快速数论变换（FNT）是环 $\mathbb{Z}&#x2F; m \mathbb{Z}$ 上的 Fourier 变换（FFT）。至于 快速 Fourier 变换是怎样的有什么用处，这里就不多说了，可参考这里。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速数论变换（FNT）">
+<meta property="og:url" content="http://yoursite.com/fastNumberTranslation/index.html">
+<meta property="og:site_name" content="521zly">
+<meta property="og:description" content="快速数论变换（FNT）是环 $\mathbb{Z}&#x2F; m \mathbb{Z}$ 上的 Fourier 变换（FFT）。至于 快速 Fourier 变换是怎样的有什么用处，这里就不多说了，可参考这里。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-04-22T08:26:59.000Z">
+<meta property="article:modified_time" content="2020-03-07T06:25:30.973Z">
+<meta property="article:author" content="茶茶白">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"remove","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/fastNumberTranslation/"/>
+
+
+
+
+
+  <title> 快速数论变换（FNT） | 521zly </title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?699b245cef6684fc1e306cd9cc1cb26a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">521zly</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/Links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Links
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/About" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/fastNumberTranslation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="茶茶白">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="521zly">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                快速数论变换（FNT）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-22T16:26:59+08:00">
+                2016-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/fastNumberTranslation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>快速数论变换（FNT）是环 $\mathbb{Z}/ m \mathbb{Z}$ 上的 Fourier 变换（FFT）。<br>至于 快速 Fourier 变换是怎样的有什么用处，这里就不多说了，可参考<a href="http://blog.miskcoo.com/2015/04/polynomial-multiplication-and-fast-fourier-transform#i-15" target="_blank" rel="noopener">这里</a>。</p>
+<a id="more"></a>
+<h2 id="NFT-的核心问题"><a href="#NFT-的核心问题" class="headerlink" title="NFT 的核心问题"></a>NFT 的核心问题</h2><p>无论是 FNT 还是 FFT 其本质其关键就是寻找一个 $w$ 使得 $w^{2^n} = 1$。在复数域中这个问题是显然的，而在一个环那就不那么简单了，这里我们考虑环 $R = \mathbb{Z}/ m \mathbb{Z}$。$R$ 为域当且仅当 $m$ 为素数。我们的问题是 </p>
+<ol>
+<li>我们选取 $R$ 中找比较大（满足我们的需求）的 $n$ 使得 $w^{2^n} = 1$ ；</li>
+<li>找出对应的“原根“；</li>
+<li>类似 FFT 的处理</li>
+<li>应用时各种可能出错的情形，最常见的是溢出,还有只适用于数据范围不超过P的非负整数。</li>
+</ol>
+<h2 id="NFT-问题解决"><a href="#NFT-问题解决" class="headerlink" title="NFT 问题解决"></a>NFT 问题解决</h2><p>  为使得分析问题更为简单，我们考虑在$m = p$ 为素数的情形，此时，我们有 $2^n \mid p-1$ 即 $p=k 2^n+1$ 为(Fermat)素数，例如：</p>
+<ol>
+<li>$p=479 \times 2^{21} +1 = 1004535809,g = 3$</li>
+<li>$p= 13 \times 2^{20} + 1 = 13631489,g = 15$</li>
+<li>$p= 17 \times 2^{27} + 1 = 2281701377,g=3$<br>更多常数选择可见<a href="http://blog.miskcoo.com/2014/07/fft-prime-table" target="_blank" rel="noopener">这里</a>。</li>
+</ol>
+<p>最终我们选择了 $FM = 1004535809$ 它的优势在于,它的两倍不超过 int 它的乘积不超过 long long 很有利于我们的运算，如果使用刚好不超过 long long 的数使用时很容易出现溢出并不方便。并且它恰好比较大。避免了做完 FFT 出现溢出。另外它可以取到的最大的 $N&gt;2e6$ 也很不错。例如现在如果我们要做 $2^k,k \leq 21$ 的 NFT。那么我们取 $w = g^{\frac{p-1}{2^k}}$ 即可。</p>
+<h2 id="HDU-1402"><a href="#HDU-1402" class="headerlink" title="HDU 1402"></a>HDU 1402</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">132005</span>;</span><br><span class="line"><span class="keyword">char</span> sa[N&gt;&gt;<span class="number">1</span>],sb[N&gt;&gt;<span class="number">1</span>];</span><br><span class="line">LL a[N],b[N];</span><br><span class="line"><span class="function">LL <span class="title">pow_mod</span><span class="params">(LL x,LL n,LL p)</span></span>&#123;</span><br><span class="line">    LL r=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(n)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n&amp;<span class="number">1</span>) r=r*x%p;</span><br><span class="line">        n&gt;&gt;=<span class="number">1</span>;  x=x*x%p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(LL *x,<span class="keyword">int</span> len,<span class="keyword">int</span> loglen)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> t=i,k=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;loglen;++j,t&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">            k=(k&lt;&lt;<span class="number">1</span>)|(t&amp;<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(k&lt;i) swap(x[i],x[k]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> LL FM = <span class="number">479</span>&lt;&lt;<span class="number">21</span>|<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">nft</span><span class="params">(LL *x,<span class="keyword">int</span> len,<span class="keyword">int</span> loglen,<span class="keyword">bool</span> isInverse)</span></span>&#123;</span><br><span class="line">    LL g = pow_mod(<span class="number">3</span>,(FM<span class="number">-1</span>)&gt;&gt;loglen,FM);</span><br><span class="line">    <span class="keyword">if</span>(isInverse)&#123;</span><br><span class="line">        g=inv(g,FM);</span><br><span class="line">        LL invlen = pow_mod(len,FM<span class="number">-2</span>,FM);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;++i)&#123;</span><br><span class="line">            x[i]=x[i]*invlen%FM;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    change(x,len,loglen);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> <span class="built_in">step</span>=<span class="number">2</span>;<span class="built_in">step</span>&lt;=len;<span class="built_in">step</span>&lt;&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> half = <span class="built_in">step</span>&gt;&gt;<span class="number">1</span>;</span><br><span class="line">        LL wn = pow_mod(g,len/<span class="built_in">step</span>,FM);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i+=<span class="built_in">step</span>)&#123;</span><br><span class="line">            LL w = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i;j&lt;i+half;++j)&#123;</span><br><span class="line">                LL t=(w*x[j+half])%FM;</span><br><span class="line">                x[j+half]=(x[j]-t+FM)%FM;</span><br><span class="line">                x[j]=(x[j]+t)%FM;</span><br><span class="line">                w = w*wn%FM;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//    freopen("/Users/dna049/Desktop/AC/in","r",stdin);</span></span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%s%s"</span>,sa,sb))&#123;</span><br><span class="line">        <span class="keyword">int</span> alen=(<span class="keyword">int</span>)<span class="built_in">strlen</span>(sa);</span><br><span class="line">        <span class="keyword">int</span> blen=(<span class="keyword">int</span>)<span class="built_in">strlen</span>(sb);</span><br><span class="line">        <span class="keyword">int</span> len=<span class="number">1</span>,loglen=<span class="number">0</span>,tmp=alen+blen+<span class="number">3</span>;</span><br><span class="line">        <span class="keyword">while</span>(len&lt;tmp)&#123;</span><br><span class="line">            len&lt;&lt;=<span class="number">1</span>;++loglen;</span><br><span class="line">        &#125;</span><br><span class="line">        clr(a,<span class="number">0</span>);clr(b,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i!=alen;++i)    a[i]=sa[alen-i<span class="number">-1</span>]-<span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i!=blen;++i)    b[i]=sb[blen-i<span class="number">-1</span>]-<span class="string">'0'</span>;</span><br><span class="line">        nft(a,len,loglen,<span class="number">0</span>);</span><br><span class="line">        nft(b,len,loglen,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i!=len;++i)&#123;</span><br><span class="line">            a[i] = a[i]*b[i]%FM;</span><br><span class="line">        &#125;</span><br><span class="line">        nft(a,len,loglen,<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(cnt&lt;len)&#123;</span><br><span class="line">            a[cnt+<span class="number">1</span>]+=a[cnt]/<span class="number">10</span>;</span><br><span class="line">            a[cnt]%=<span class="number">10</span>;++cnt;</span><br><span class="line">        &#125;</span><br><span class="line">        cnt=alen+blen;</span><br><span class="line">        <span class="keyword">while</span>(cnt&gt;<span class="number">1</span>&amp;&amp;a[cnt<span class="number">-1</span>]==<span class="number">0</span>)    --cnt;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=cnt<span class="number">-1</span>;i&gt;=<span class="number">0</span>;--i)&#123;</span><br><span class="line">            <span class="built_in">putchar</span>((<span class="keyword">int</span>)a[i]+<span class="string">'0'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Last update: 2020年3月7日13:43:15</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Math/" rel="tag"># Math</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/computationOfPiX/" rel="next" title="$\pi(x)$ 的计算">
+                <i class="fa fa-chevron-left"></i> $\pi(x)$ 的计算
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/nondecraseSubsequence/" rel="prev" title="最长递增子序列与连续子序列最大和">
+                最长递增子序列与连续子序列最大和 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">茶茶白</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "2bff0484652d4b2cb863a85d263ef625",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.0"></script>
+
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
