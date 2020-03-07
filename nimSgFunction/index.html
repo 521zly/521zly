@@ -1,0 +1,707 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C++,运筹学," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在2002年张一飞写过一篇论文 《由感性认识到理性认识－透析一类博弈游戏的解答过程》 从此开启了这类博弈问题的大门，留下学习笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SG 函数之取石子博弈">
+<meta property="og:url" content="http://yoursite.com/nimSgFunction/index.html">
+<meta property="og:site_name" content="521zly">
+<meta property="og:description" content="在2002年张一飞写过一篇论文 《由感性认识到理性认识－透析一类博弈游戏的解答过程》 从此开启了这类博弈问题的大门，留下学习笔记。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-05-29T04:12:10.000Z">
+<meta property="article:modified_time" content="2020-03-07T06:56:10.250Z">
+<meta property="article:author" content="茶茶白">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="运筹学">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"remove","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/nimSgFunction/"/>
+
+
+
+
+
+  <title> SG 函数之取石子博弈 | 521zly </title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?699b245cef6684fc1e306cd9cc1cb26a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">521zly</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/Links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Links
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/About" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/nimSgFunction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="茶茶白">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="521zly">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SG 函数之取石子博弈
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-29T12:12:10+08:00">
+                2016-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/nimSgFunction/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在2002年张一飞写过一篇论文 <a href="NimGame.pdf">《由感性认识到理性认识－透析一类博弈游戏的解答过程》</a> 从此开启了这类博弈问题的大门，留下学习笔记。</p>
+<a id="more"></a>
+<h4 id="取石子游戏"><a href="#取石子游戏" class="headerlink" title="取石子游戏"></a>取石子游戏</h4><p>$A,B$ 两人面对若干堆石子，按照如下规则取石子</p>
+<ol>
+<li>每步至少取一枚石子</li>
+<li>每步只能在某一堆取走部分或者全部石子</li>
+<li>谁无法按照规则取石子，谁就是输家</li>
+</ol>
+<p>首先抛开问题，我们先从一般的入手。</p>
+<p>我们可以用一个 $n$ 元组 $(a_1,a_2,\cdots,a_n)$ 表示一个局面 $S$。显然<strong>改变 $n$ 元组的顺序仍然是一个局面。</strong></p>
+<p>一个局面 $n$ 元局面$(a_1,a_2,\cdots,a_n)$和一个 $m$ 元局面 $(b_1,b_2,\cdots,b_m)$ 之和显然就是一个 $m + n$ 元局面 $(a_1,a_2,\cdots,a_n,b_1,b_2,\cdots,b_m)$。类似的一个局面也可以有多种分解。</p>
+<p>对于局面 $S$，若先行者有必胜策略，则称 “$S$ 胜”；<br>对于局面 $S$，若后行者有必胜策略，则称 “$S$ 负”。</p>
+<p>如果局面 $S$ 胜，则必然存在取子方式 $S \to T$，且 $T$ 负；<br>如果局面 $S$ 负，则对任意取子方式 $S \to T$，有 $T$ 胜。</p>
+<p>局面分解理论，若 $S = A + B$ 则下面结论显然</p>
+<ol>
+<li>若 $A,B$ 一胜一负，则 $S$ 胜</li>
+<li>若 $A,B$ 全为负，则 $S$ 负</li>
+<li>若 $A,B$ 全为胜，则 $S$ 无法判断</li>
+<li>若 $A=B$，则 $S$ 负</li>
+<li>空局面是负局面</li>
+</ol>
+<p>因此根据上面的分解理论，可以将一个局面进行化简。例如 $(2,2,2,7,9,9)$ 可以化简成 $(2,7)$</p>
+<p>而局面分解的关系，很容易让人联想到整数的位运算－异或。</p>
+<p>对于上面取石子问题，每一个局面都可以分解成只有一堆石子的局面。<br>对一个局面，定义一个函数 $f$，然后把它们异或是不是，然后判断是非为0，作为是否胜的充要条件.这样做是否可行呢？先对原始例子进行实验。</p>
+<p>函数 $f$：若局面 $S$ 只有一个石子，设 $S={a}$，则定义 $f(a) = a$。<br>设局面 $S = (a_1,a_2,\cdots,a_n)=(a_1)+(a_2)+\cdots (a_n)$，则 $f(S) = f(a_1) \oplus f(a_2) \oplus \cdots \oplus f(a_n)$<br>对于一个局面 $S$，若 $f(S) = 0$，则 $S$ 负，否则，$S$ 胜。</p>
+<p>下面证明上面的结论。<br>引理：$a_1 \oplus a_2 \oplus a_n = p \neq 0$，则必存在 $1 \leq k \leq n$，使得 $a_k \oplus p &lt; a_k$。这是因为我们看 $p$ 的最高位即知存在 $a_k$ 其最高位也为 $1$, 那么与 $p$ 异或后，这一位就从 $1$ 变为 $0$，证毕。</p>
+<p>若 $f(S) = 0$，则无论先行者如何取子 $S \to T$，都有 $f(T) \neq 0$。<br>若 $f(S) \neq 0$，则先行者存在一种取法 $S \to T$, 使得 $f(T) = 0$。这是因为由引理 $a_1 \oplus a_2 \oplus a_n = p \neq 0$，存在 $1 \leq k \leq n$，使得 $x = a_k \oplus p &lt; a_k$。那么我们在第 $k$ 堆取走 $a_k - x$ 个石子，那么 $a_1 \oplus a_2 \oplus a_n \oplus p = 0$，证毕。</p>
+<p>这说明了上述想法的可行性。下面把这种思想推广成一般的 SG 函数的情形</p>
+<h4 id="SG-函数"><a href="#SG-函数" class="headerlink" title="SG 函数"></a>SG 函数</h4><p>当对石子的取法进行限制时，例如每次最多能去 $m$ 个，或每次最少取 $l$ 个等，此时再令 $f(x) = x$ 就不合适了。那么应该选择怎样的 $f$ 呢。显然 $f$ 必须满足：</p>
+<ol>
+<li>若 $f(S) = 0$, 则无论先行者如何取子 $S \to T$，都有 $f(T) \neq 0$</li>
+<li>若 $f(S) \neq 0$, 则先行者存在一种取子 $S \to T$，使得 $f(T) = 0$。</li>
+</ol>
+<p>我们用 $(S) = \lbrace S_1,S_2, \cdots S_k \rbrace$ 表示 $S$ 的下一个可能的局面，定义 $g(S) = \lbrace f(S_1),f(S_2), \cdots f(S_k) \rbrace $</p>
+<p>由 $f$ 满足条件1知</p>
+<script type="math/tex; mode=display">
+\lbrace f(S) \rbrace \cap g(S) = \emptyset</script><p>由条件2知</p>
+<script type="math/tex; mode=display">
+\max g(S) < f(S)</script><p>因此我们定义函数 $f(S)$ 为 $f(S) \equiv \min g(S)$</p>
+<blockquote>
+<p>写的这么乱，估计只有自己看的懂 0.0</p>
+<p>Last update:  2020年3月7日14:52:14</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+            <a href="/tags/%E8%BF%90%E7%AD%B9%E5%AD%A6/" rel="tag"># 运筹学</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/treeSegmentTree/" rel="next" title="树上线段树">
+                <i class="fa fa-chevron-left"></i> 树上线段树
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/fiveLemma/" rel="prev" title="五引理">
+                五引理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">茶茶白</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "2bff0484652d4b2cb863a85d263ef625",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.0"></script>
+
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
