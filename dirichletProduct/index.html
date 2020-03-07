@@ -113,7 +113,7 @@
 <meta property="og:description" content="最近重温潘承洞老先生的《数论基础》(现代数学基础丛书34)，确实是经典中的经典。以现代的眼光看数论函数，使得分析问题更加简洁本质，而这些都要归功于 Dirichlet 积的引入。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2016-01-20T12:09:26.000Z">
-<meta property="article:modified_time" content="2020-03-06T23:18:21.519Z">
+<meta property="article:modified_time" content="2020-03-07T00:00:09.539Z">
 <meta property="article:author" content="茶茶白">
 <meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
@@ -393,14 +393,12 @@
 <li><p>n的所有正除数的个数 $d(n)$.</p>
 <script type="math/tex; mode=display">
  d(n)= \sum_{d|n} 1 = (a_1+1)(a_2+1) \cdots (a_n+1), \; n=p_1^{a_1} \cdots p_s^{a_s}</script></li>
-</ol>
-<ol>
-<li>n的全部素因子的个数（按重数计）$ \Omega(n) $<script type="math/tex; mode=display">
+<li><p>n的全部素因子的个数（按重数计）$ \Omega(n) $</p>
+<script type="math/tex; mode=display">
 \begin{array}{ll} \Omega(1)=0 & \\
 \Omega(n) = a_1 + a_2+ \cdots a_n, & n=p_1^{a_1} \cdots p_s^{a_s} \end{array}</script></li>
-</ol>
-<ol>
-<li>n的不同素因子的个数 $\omega(n)$<script type="math/tex; mode=display">
+<li><p>n的不同素因子的个数 $\omega(n)$</p>
+<script type="math/tex; mode=display">
 \begin{array}{ll} \omega(1)=0 & \\
 \omega(n) = s, & n=p_1^{a_1} \cdots p_s^{a_s} \end{array}</script></li>
 </ol>
@@ -416,13 +414,10 @@
 <script type="math/tex; mode=display">
 \mu(n) = \left\{\begin{array}{ll} 1, & n=1, \\ (-1)^s, & n=p_1p_2 \cdots p_s, \; p_1 < p_2< \cdots < p_s. \\
 0, & else. \end{array} \right.</script></li>
-</ol>
-<ol>
-<li>Mangoldt函数 $\Lambda(n)$<script type="math/tex; mode=display">
+<li><p>Mangoldt函数 $\Lambda(n)$</p>
+<script type="math/tex; mode=display">
 \Lambda(n) = \left\{\begin{array}{ll} \log p, & n= p^k, k \geq 1\\
 0, & else. \end{array} \right.</script></li>
-</ol>
-<ol>
 <li><p>Liouville 函数 $\lambda(n) = (-1)^{\Omega(n)}$</p>
 </li>
 <li><p>Euler函数的推广(自创 dna0.49 ) $ \phi _{\lambda}(n)$</p>
@@ -463,7 +458,7 @@ f^{-1} (n) = \frac{-1}{f(1)} \sum _{d|n,\, d<n} f(\frac{n}{d})f^{-1}(d),\; n>1</
 \begin{align}
 \sum_{ d|n } \mu(n) & = \mu(1) + \mu(p_1) + \mu(p_2) + \cdots +\mu(p_s) + \cdots + \mu(p_1 p_2) + \cdots \\
 & \quad + \mu(p_{s-1}p_s) + \cdots \mu(p_1 p_2 \cdots p_s) \\
-& =  1 + \begin{matrix} s \\ 1\end{matrix} (-1) + \begin{matrix} s \\ 2\end{matrix} (-1)^2 + \cdots + \begin{matrix} s \\ s\end{matrix} (-1)^s = (1-1)^s = 0 \end{align}</script><blockquote>
+& =  1 + \begin{matrix} s \choose 1 \end{matrix} (-1) + \begin{matrix} s \choose 2\end{matrix} (-1)^2 + \cdots + \begin{matrix} s \choose s\end{matrix} (-1)^s = (1-1)^s = 0 \end{align}</script><blockquote>
 <p>由此可见，原来看上去复杂的不知所以然的 Mobius 函数本质上是恒为1的函数的 Dirichlet 逆元。</p>
 </blockquote>
 <h5 id="定义5-若-F-f-star-u-则称-F-是-f-的-Mobius-变换，即"><a href="#定义5-若-F-f-star-u-则称-F-是-f-的-Mobius-变换，即" class="headerlink" title="定义5  若 $F=f \star u$ 则称$F$ 是$f$ 的 Mobius 变换，即"></a>定义5  若 $F=f \star u$ 则称$F$ 是$f$ 的 Mobius 变换，即</h5><script type="math/tex; mode=display">
@@ -644,8 +639,8 @@ Q(x) = x \sum_{d=1}^{\infty} \frac{\mu(d)}{d^2} +O(\sqrt{x}) = \frac{6}{\pi^2} x
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/workWithLatex/" rel="next" title="workWithLatex">
-                <i class="fa fa-chevron-left"></i> workWithLatex
+              <a href="/workWithLatex/" rel="next" title="Latex编辑的一些文档">
+                <i class="fa fa-chevron-left"></i> Latex编辑的一些文档
               </a>
             
           </div>
