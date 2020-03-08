@@ -1,0 +1,690 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C++," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="这里记录一些我的新玩具:51单片机的基础常识，作为初学者，下文必然是错误百出。  很久没更新博客了,毕竟很久没写程序了。数学类的嵌套的定义又太多，很不好写。  新玩具这次淘宝买的新玩具是：HC6800-ES V2.0 开发版，内部单片机是STC89C52。见下图  作为小白看了一下视频，但是呢，感觉视频什么的太慢，还是看书看手册来的爽。安装好单片机版C语言的IDE Keil4 以及烧录软件之后，装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="玩具：HC6800-ES开发版">
+<meta property="og:url" content="http://yoursite.com/singleChip/index.html">
+<meta property="og:site_name" content="521zly">
+<meta property="og:description" content="这里记录一些我的新玩具:51单片机的基础常识，作为初学者，下文必然是错误百出。  很久没更新博客了,毕竟很久没写程序了。数学类的嵌套的定义又太多，很不好写。  新玩具这次淘宝买的新玩具是：HC6800-ES V2.0 开发版，内部单片机是STC89C52。见下图  作为小白看了一下视频，但是呢，感觉视频什么的太慢，还是看书看手册来的爽。安装好单片机版C语言的IDE Keil4 以及烧录软件之后，装">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/singleChip/HC6800.png">
+<meta property="og:image" content="http://yoursite.com/singleChip/89C52.png">
+<meta property="og:image" content="http://yoursite.com/singleChip/STC89C52_1.png">
+<meta property="og:image" content="http://yoursite.com/singleChip/STC89C52_2.png">
+<meta property="og:image" content="http://yoursite.com/singleChip/keyboard.png">
+<meta property="article:published_time" content="2017-03-19T06:43:27.000Z">
+<meta property="article:modified_time" content="2020-03-08T06:52:07.442Z">
+<meta property="article:author" content="茶茶白">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/singleChip/HC6800.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"remove","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/singleChip/"/>
+
+
+
+
+
+  <title> 玩具：HC6800-ES开发版 | 521zly </title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?699b245cef6684fc1e306cd9cc1cb26a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">521zly</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/Links" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Links
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/About" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/singleChip/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="茶茶白">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="521zly">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                玩具：HC6800-ES开发版
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-19T14:43:27+08:00">
+                2017-03-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-03-08T14:52:07+08:00">
+                2020-03-08
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/singleChip/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这里记录一些我的新玩具:<code>51单片机</code>的基础常识，作为初学者，下文必然是错误百出。</p>
+<blockquote>
+<p>很久没更新博客了,毕竟很久没写程序了。数学类的嵌套的定义又太多，很不好写。</p>
+</blockquote>
+<h3 id="新玩具"><a href="#新玩具" class="headerlink" title="新玩具"></a>新玩具</h3><p>这次淘宝买的新玩具是：HC6800-ES V2.0 开发版，内部单片机是STC89C52。见下图</p>
+<p><img src="HC6800.png" alt="HC6800"></p>
+<p>作为小白看了一下视频，但是呢，感觉视频什么的太慢，还是看书看<a href="http://dna049.com/2017/03/19/singlechip/HC6800-ES-V2.0实验指导书.pdf" target="_blank" rel="noopener">手册</a>来的爽。安装好单片机版C语言的IDE Keil4 以及烧录软件之后，装一下开发版驱动，就可以在不知道单片机原理的情况下轻松的控制单片机了。例如什么 LED灯闪烁，跑马灯，等等很基础的程序。</p>
+<p>下面是单片机的管脚图和说明：</p>
+<p><img src="89C52.png" alt="89C52"></p>
+<p><img src="STC89C52_1.png" alt="STC89C52_1"></p>
+<p><img src="STC89C52_2.png" alt="STC89C52_2"></p>
+<p>从图上看知道P0,P1,P2,P3是重要的I/O口，例如我们把P2接到LED灯，那么给低电平0，就可以使灯亮。还有P0，P1不仅可以作为I/O口，还可以作为地址，计时器、计数器来用。还有P3，等等。由于我用的是开发版，每个口接什么基本上已经固定了，用的时候查相应的官方资料就行了。它也提供了很多程序例子，因此还是很好掌握的，只是要记点东西才能灵活操作它。</p>
+<h3 id="HC6800-ES-VS2-0-常见管脚接法。"><a href="#HC6800-ES-VS2-0-常见管脚接法。" class="headerlink" title="HC6800-ES-VS2.0 常见管脚接法。"></a>HC6800-ES-VS2.0 常见管脚接法。</h3><ol>
+<li><p>P2口8个位接了8个LED灯，至0灯亮。</p>
+</li>
+<li><p>P1.5接了蜂鸣器。循环至0至1发声。</p>
+</li>
+<li><p>P3.0 ~ P3.3 接了独立键盘（不过开发版上竟然接反了K1和K2），使用按键的时候要软件消除抖动，一般延迟10ms来完成。</p>
+</li>
+<li><p>通过P1的数据，来判断矩阵键盘按的键。（见下图)  <img src="keyboard.png" alt="keyboard"></p>
+</li>
+</ol>
+<ol>
+<li><p>数码管使用P0, 通过 LSA=P2.2, LSB=P2.3, LSB=P2.4 的0-1指来控制显示的地方。</p>
+</li>
+<li><p>常用<a href="http://dna049.com/2017/03/19/singlechip/timer.c" target="_blank" rel="noopener">定时器</a>和<a href="http://dna049.com/2017/03/19/singlechip/breaks.c" target="_blank" rel="noopener">中断</a>标程。</p>
+</li>
+</ol>
+<h3 id="1602-液晶显示"><a href="#1602-液晶显示" class="headerlink" title="1602 液晶显示"></a>1602 液晶显示</h3><p>这个虽然很复杂，但是生产该显示屏的会提供<code>lcd.h</code>和<code>lcd.c</code>然后我们只要先初始化LCD：<code>LcdInit()</code>再执行字节输出函数：<code>LcdWriteData(char c)</code>即可。</p>
+<h4 id="程序示例"><a href="#程序示例" class="headerlink" title="程序示例"></a>程序示例</h4><p>程序功能: 按下k1键LED跑马灯，K2蜂鸣器发生，K3数码管显示1-8。由于不会中断，所以跑马灯写的很挫。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;reg52.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;intrins.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> u16;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> u8;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> led P2</span></span><br><span class="line">sbit k1=P3^<span class="number">1</span>;</span><br><span class="line">sbit k2=P3^<span class="number">0</span>;</span><br><span class="line">sbit k3=P3^<span class="number">2</span>;</span><br><span class="line">sbit LSA=P2^<span class="number">2</span>;</span><br><span class="line">sbit LSB=P2^<span class="number">3</span>;</span><br><span class="line">sbit LSC=P2^<span class="number">4</span>;</span><br><span class="line">sbit <span class="built_in">beep</span>=P1^<span class="number">5</span>;</span><br><span class="line">u8 beepS,i,ledState = <span class="number">0</span>,DigState = <span class="number">0</span>;</span><br><span class="line">u8 code smgduan[<span class="number">17</span>]=&#123;<span class="number">0x3f</span>,<span class="number">0x06</span>,<span class="number">0x5b</span>,<span class="number">0x4f</span>,<span class="number">0x66</span>,<span class="number">0x6d</span>,<span class="number">0x7d</span>,<span class="number">0x07</span>,</span><br><span class="line">					<span class="number">0x7f</span>,<span class="number">0x6f</span>,<span class="number">0x77</span>,<span class="number">0x7c</span>,<span class="number">0x39</span>,<span class="number">0x5e</span>,<span class="number">0x79</span>,<span class="number">0x71</span>&#125;; <span class="comment">//显示0~F的值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">delay</span><span class="params">(u16 t)</span></span>&#123; 	<span class="comment">//  每次约10us</span></span><br><span class="line">	<span class="keyword">while</span>(t--);	</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ledStart</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ledState = <span class="number">1</span>;</span><br><span class="line">	led=<span class="number">0xfe</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i!=<span class="number">7</span>;++i)&#123;</span><br><span class="line">		led = _crol_(led,<span class="number">1</span>);</span><br><span class="line">		<span class="built_in">delay</span>(<span class="number">50000</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ledStop</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ledState = <span class="number">0</span>;</span><br><span class="line">	led = <span class="number">0xff</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DigDisplay</span><span class="params">()</span></span>&#123;</span><br><span class="line">	DigState = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">8</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">switch</span>(i)&#123;	 <span class="comment">//位选，选择点亮的数码管</span></span><br><span class="line">			<span class="keyword">case</span>(<span class="number">0</span>):</span><br><span class="line">				LSA=<span class="number">0</span>;LSB=<span class="number">0</span>;LSC=<span class="number">0</span>; <span class="keyword">break</span>;<span class="comment">//显示第0位</span></span><br><span class="line">			<span class="keyword">case</span>(<span class="number">1</span>):</span><br><span class="line">				LSA=<span class="number">1</span>;LSB=<span class="number">0</span>;LSC=<span class="number">0</span>; <span class="keyword">break</span>;<span class="comment">//显示第1位</span></span><br><span class="line">			<span class="keyword">case</span>(<span class="number">2</span>):</span><br><span class="line">				LSA=<span class="number">0</span>;LSB=<span class="number">1</span>;LSC=<span class="number">0</span>; <span class="keyword">break</span>;<span class="comment">//显示第2位</span></span><br><span class="line">			<span class="keyword">case</span>(<span class="number">3</span>):</span><br><span class="line">				LSA=<span class="number">1</span>;LSB=<span class="number">1</span>;LSC=<span class="number">0</span>; <span class="keyword">break</span>;<span class="comment">//显示第3位</span></span><br><span class="line">			<span class="keyword">case</span>(<span class="number">4</span>):</span><br><span class="line">				LSA=<span class="number">0</span>;LSB=<span class="number">0</span>;LSC=<span class="number">1</span>; <span class="keyword">break</span>;<span class="comment">//显示第4位</span></span><br><span class="line">			<span class="keyword">case</span>(<span class="number">5</span>):</span><br><span class="line">				LSA=<span class="number">1</span>;LSB=<span class="number">0</span>;LSC=<span class="number">1</span>; <span class="keyword">break</span>;<span class="comment">//显示第5位</span></span><br><span class="line">			<span class="keyword">case</span>(<span class="number">6</span>):</span><br><span class="line">				LSA=<span class="number">0</span>;LSB=<span class="number">1</span>;LSC=<span class="number">1</span>; <span class="keyword">break</span>;<span class="comment">//显示第6位</span></span><br><span class="line">			<span class="keyword">case</span>(<span class="number">7</span>):</span><br><span class="line">				LSA=<span class="number">1</span>;LSB=<span class="number">1</span>;LSC=<span class="number">1</span>; <span class="keyword">break</span>;<span class="comment">//显示第7位	</span></span><br><span class="line">		&#125;</span><br><span class="line">		P0=smgduan[i];	<span class="comment">//发送段码</span></span><br><span class="line">		<span class="built_in">delay</span>(<span class="number">50000</span>); 	<span class="comment">//间隔一段时间扫描	</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DigStop</span><span class="params">()</span></span>&#123;</span><br><span class="line">	DigState = <span class="number">0</span>;</span><br><span class="line">	P0 = <span class="number">0x00</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">keyPress</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(k1==<span class="number">0</span>)&#123;		<span class="comment">// 检测k1是否按下</span></span><br><span class="line">		<span class="built_in">delay</span>(<span class="number">1000</span>);<span class="comment">//消除抖动 一般大约10ms</span></span><br><span class="line">		<span class="keyword">if</span>(k1==<span class="number">0</span>)&#123;	<span class="comment">//再次判断按键是否按下</span></span><br><span class="line">			<span class="keyword">if</span>(ledState==<span class="number">0</span>)	ledStart();</span><br><span class="line">			<span class="keyword">else</span>	ledStop();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(!k1);	 <span class="comment">//检测按键是否松开</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(k2==<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="built_in">delay</span>(<span class="number">10</span>);</span><br><span class="line">		<span class="keyword">if</span>(k2==<span class="number">0</span>)&#123;</span><br><span class="line">			beepS=<span class="number">10</span>;</span><br><span class="line">			<span class="keyword">while</span>(beepS&lt;<span class="number">200</span>)&#123;</span><br><span class="line">				<span class="built_in">beep</span>=~<span class="built_in">beep</span>;</span><br><span class="line">				<span class="built_in">delay</span>(beepS);</span><br><span class="line">				++beepS;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(!k2);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(k3==<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="built_in">delay</span>(<span class="number">10</span>);</span><br><span class="line">		<span class="keyword">if</span>(k3==<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(DigState == <span class="number">0</span>)	DigDisplay();</span><br><span class="line">			<span class="keyword">else</span>	DigStop();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(!k3);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)	keyPress();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/fiveLemma/" rel="next" title="五引理">
+                <i class="fa fa-chevron-left"></i> 五引理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/kaplanskyTheorem/" rel="prev" title="Kaplansky 定理">
+                Kaplansky 定理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">茶茶白</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "2bff0484652d4b2cb863a85d263ef625",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.0"></script>
+
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
