@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Math," />
+  <meta name="keywords" content="C++," />
 
 
 
@@ -105,17 +105,17 @@
 
 
 
-<meta name="description" content="近期在整理 Lie Algebra 课的笔记，还是很喜欢这门课的，主要是本科时候矩阵玩的特别6，然后 Lie Algebra 可以认为是矩阵的推广版本。里面的证明技巧性相当强。我之所以喜欢数学很大程度与数学技巧有关。但是我的导师说，这些虽然很有技巧，但是你花时间都是可以处理的，会技巧没什么了不起，脑袋稍微好一点就能做这种事，长期技巧的训练其实意义并不大，应该更关注数学内部的东西，具体说就是一个代数">
+<meta name="description" content="异或运算是一种很神奇用途很广的运算. 从性质上, 异或运算作为二元运算, 关于所有非负整数构成一个Abel群, 0作为幺元, 每个元的逆元都是自身(等价于说$char(N ^ \star,xor)&#x3D;2$)。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="李代数">
-<meta property="og:url" content="http://yoursite.com/lieAlgebra/index.html">
+<meta property="og:title" content="异或运算及其在Nim游戏中的应用">
+<meta property="og:url" content="http://yoursite.com/xorAndItsApplicationInNimGame/index.html">
 <meta property="og:site_name" content="521zly">
-<meta property="og:description" content="近期在整理 Lie Algebra 课的笔记，还是很喜欢这门课的，主要是本科时候矩阵玩的特别6，然后 Lie Algebra 可以认为是矩阵的推广版本。里面的证明技巧性相当强。我之所以喜欢数学很大程度与数学技巧有关。但是我的导师说，这些虽然很有技巧，但是你花时间都是可以处理的，会技巧没什么了不起，脑袋稍微好一点就能做这种事，长期技巧的训练其实意义并不大，应该更关注数学内部的东西，具体说就是一个代数">
+<meta property="og:description" content="异或运算是一种很神奇用途很广的运算. 从性质上, 异或运算作为二元运算, 关于所有非负整数构成一个Abel群, 0作为幺元, 每个元的逆元都是自身(等价于说$char(N ^ \star,xor)&#x3D;2$)。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2016-04-08T11:16:21.000Z">
-<meta property="article:modified_time" content="2020-03-08T11:26:53.452Z">
+<meta property="article:published_time" content="2017-05-27T08:00:16.000Z">
+<meta property="article:modified_time" content="2020-03-08T11:28:56.123Z">
 <meta property="article:author" content="茶茶白">
-<meta property="article:tag" content="Math">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 
 
@@ -144,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/lieAlgebra/"/>
+  <link rel="canonical" href="http://yoursite.com/xorAndItsApplicationInNimGame/"/>
 
 
 
 
 
-  <title> 李代数 | 521zly </title>
+  <title> 异或运算及其在Nim游戏中的应用 | 521zly </title>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -299,7 +299,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/lieAlgebra/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/xorAndItsApplicationInNimGame/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="茶茶白">
@@ -320,7 +320,7 @@
             
             
               
-                李代数
+                异或运算及其在Nim游戏中的应用
               
             
           </h1>
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-08T19:16:21+08:00">
-                2016-04-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-27T16:00:16+08:00">
+                2017-05-27
               </time>
             
 
@@ -352,7 +352,7 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-03-08T19:26:53+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2020-03-08T19:28:56+08:00">
                 2020-03-08
               </time>
             
@@ -367,7 +367,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/lieAlgebra/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/xorAndItsApplicationInNimGame/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -394,42 +394,50 @@
       
 
       
-        <p>近期在整理 Lie Algebra 课的笔记，还是很喜欢这门课的，主要是本科时候矩阵玩的特别6，然后 Lie Algebra 可以认为是矩阵的推广版本。里面的证明技巧性相当强。我之所以喜欢数学很大程度与数学技巧有关。但是我的导师说，这些虽然很有技巧，但是你花时间都是可以处理的，会技巧没什么了不起，脑袋稍微好一点就能做这种事，长期技巧的训练其实意义并不大，应该更关注数学内部的东西，具体说就是一个代数对象的结构，分类，不变量，对象之间的同构。一个概念有哪些等价形式，与其它概念之间的关系，搞清楚这些更为重要，它们的证明只要大致知道怎么过来的就行。我们并不要把证明的细节放在心中，因为我们已经经过了多年的训练，相信我们通过大致步骤就能给出详细的证明，只是花的时间多少罢了。当然初学一个东西，去抠它的细节是无可厚非的。<br>以上纯属废话 0.0</p>
+        <p>异或运算是一种很神奇用途很广的运算. 从性质上, 异或运算作为二元运算, 关于所有非负整数构成一个Abel群, 0作为幺元, 每个元的逆元都是自身(等价于说$char(N ^ \star,xor)=2$)。</p>
 <a id="more"></a>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>交换环 $K$ 上的模 $L$，以及一个运算 $L \times L \to L,(x,y) \mapsto [x,y]$ 称为 $x,y$ 的 Lie 括号，或交换子，称 $L$ 是 $K$ 上的 <a href="https://en.wikipedia.org/wiki/Lie_algebra" target="_blank" rel="noopener">Lie Algebra</a> 如果满足如下公理。<br>L1. $[\cdot,\cdot]$ 是双线性的；<br>L2. $[x,x]=0$ 对任意 $x \in L$ 成立；<br>L3. $[x,[y,z]]+[y,[z,x]]+[z,[x,y]]=0$ (Jacobi 恒等式)</p>
-<p>若$[L,L]=0$ 则上面结论显然成立，此时称为 Abelian Lie Algebra。令 $Z(L) = \lbrace x \in L \;|\; [x,L] = 0 \rbrace$</p>
-<p>我们通常并不考虑如此一般情形下的 Lie 代数，一般我们令交换环 $K$ 是域 $F$，并且域 $F$ 很多时候要求是代数闭域，且特征为0。另外我们大多考虑 $L$ 是 $F$ 上的有限维线性空间。</p>
-<p>子，理想，商，同态，表示等一系列的概念和其它代数结构几乎一致。基本上可以划入范畴中。另外单，半单，Radical等这些概念也于环里面的类似。</p>
-<h3 id="样板-Lie-Algebra"><a href="#样板-Lie-Algebra" class="headerlink" title="样板 Lie Algebra"></a>样板 Lie Algebra</h3><p>对于 $V$ 是 $F$ 上有限维线性空间，用 $End V$ 表示 $V$ 到 $V$ 的线性变换全体按照元素的复合构成了 $F$ 上的线性空间且$dim End V = (dim V)^2$。也构成了 $End V$ 是一个结合F-代数。而任何结合代数都可以诱导一个 Lie 代数。定义 $[x,y]=xy-yx$ 即可。为了跟原来的代数区别，我们用 $\mathbb{gl}(V)$ 代替 $End V$，称为 general linear algebra。它在 Lie 代数中充当的角色很类似于置换群在群中的角色。我们知道半单Lie代数同构于$\mathbb{gl}(V)$ 的一个子Lie代数。</p>
-<h3 id="导子和伴随表示"><a href="#导子和伴随表示" class="headerlink" title="导子和伴随表示"></a>导子和伴随表示</h3><p>我们称一个 $F-$代数 $A$（可以非结合）也可以借助导子(derivation)诱导一个Lie代数，称一个导子是指一个线性映射 $\delta: A \to A$ 满足 $\delta(ab)=\delta(a)b+a\delta(b)$。易知导子 $Der A$ 全体构成了 $End A$ 的一个子空间，由于 $[\delta,\delta’] \in Der A$，因此 $Der A$ 构成了 $\mathbb{gl}(V)$的一个子Lie代数。<br>由于Lie代数 $L$ 也是 $F-$代数,因此我们也可以定义 $Der L$。这是的导子本质上就是Jacobi恒等式的变形。<br>定义 $ad_x: L \to L,y \mapsto [x,y]$，实际上 $ad_x \in Der L$。$L \to Der L,x \mapsto ad_x$ 称为 $L$ 的伴随表示(adiont representation)。</p>
-<h3 id="可解和幂零"><a href="#可解和幂零" class="headerlink" title="可解和幂零"></a><a href="#u53EF_u89E3_u548C_u5E42_u96F6" title="可解和幂零"></a>可解和幂零</h3><p>对于给定Lie代数 $L$，我们有理想降链<br>$L^{(0)} = L,L^{(1)}=[L^{(0)},L^{(0)}],\cdots,L^{(i)}=[L^{(i-1)},L^{(i-1)}],\cdots$。若存在 $n$ 使得 $L^{(n)} = 0$ 则称 $L$ 可解(slovable)。</p>
-<ol>
-<li>若$L$ 可解，$L$ 的子代数和同态像可解</li>
-<li>$I$ 是 $L$ 的可解理想，若 $L/I$ 可解，则 $L$ 可解。</li>
-<li>$I,J$ 是 $J$ 的可解理想，则 $I+J$ 也是。</li>
+<h3 id="异或的定义和简单性质"><a href="#异或的定义和简单性质" class="headerlink" title="异或的定义和简单性质"></a>异或的定义和简单性质</h3><p>异或, 英文: exclusive OR, 缩写xor, 习惯记作$\wedge$。这个运算$1\wedge 1=0\wedge 0=0,1\wedge 0=0\wedge 1=1$。 对任意是两个非负整数$a,b$ 将其写成二进制, 然后各位分别进行异或操作即可. 容易根据上面定义说明之前提到的性质. 下面再介绍一个重要但不是很明显的性质:</p>
+<p><strong>引理</strong>: 若$k=a_1\wedge ⋯\wedge a_n≠0$ 则必然存在$i$, 使得 $a_i \wedge k&lt;a_i$。<br>证明: 因为$k \neq 0$, 所以必然记 $k$ 得最高位是第$t$位, 则必然存在$i$, 使得$a_i$的第$t$为不为0(否则 $k$ 的第 $t$ 位的1咋来的). 那么此时 $a_i \wedge k$的第$t$为0, 前面的位不变, 从而小于$a_i$。</p>
+<h3 id="异或的简单应用"><a href="#异或的简单应用" class="headerlink" title="异或的简单应用"></a>异或的简单应用</h3><p>简单的直接贴代码吧, 不废话.</p>
+<h4 id="用异或来改变两个数"><a href="#用异或来改变两个数" class="headerlink" title="用异或来改变两个数"></a>用异或来改变两个数</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">swap(UI &amp; a, UI &amp; b)&#123;</span><br><span class="line">	a = a^b;</span><br><span class="line">	b = a^b;</span><br><span class="line">	a = a^b</span><br><span class="line">&#125; <span class="comment">// UI 表示 unsigned int, 写的很骚气.</span></span><br></pre></td></tr></table></figure>
+<h4 id="异或找出唯一出现奇数次的数"><a href="#异或找出唯一出现奇数次的数" class="headerlink" title="异或找出唯一出现奇数次的数"></a>异或找出唯一出现奇数次的数</h4><p>把这一堆数全体直接异或即可.</p>
+<blockquote>
+<p>这个方法可以推广到找出两个只出现奇数次的, 其它出现偶数次的两个数, 方法就是先异或之后的值按照最高位进行标记然后分成两组, 再来一遍.</p>
+</blockquote>
+<h3 id="Nim取石子问题"><a href="#Nim取石子问题" class="headerlink" title="Nim取石子问题"></a>Nim取石子问题</h3><p>在2002年国家IO集训队中张一飞写了<a href="nimGame.pdf">&lt;&lt;由感性认识到理性认识——透析一类搏弈游戏的解答过程&gt;&gt;</a>中明确的表面了这个取Nim石子游戏用异或可以完美的解决.</p>
+<blockquote>
+<p>我把他结果简单表达如下, 并在做一点小小的改变之后得到类似的结果</p>
+</blockquote>
+<p>游戏规则1 : 甲乙两人面对若干堆石子，其中每一堆石子的数目任意给定, 两人轮流取走一些石子, 每次至少取一枚石子, 每次只能从某一堆中取, 可以取完, 谁无法取子, 谁就是输家(规则2正好相反).</p>
+<blockquote>
+<p>在规则1中张一飞一步一步由浅入深, 从具体例子过度到理性的判断, 最终给出若所有石子数异或结果为0, 则后手胜, 反之先手胜.</p>
+</blockquote>
+<p>首先对于此类取石子博弈问题: <strong>必败准则</strong></p>
+<blockquote>
+<p>必胜局面必然存在一步转化成为一个必负局面;<br>必负局面必然任意一步转化都会成为必胜局面.</p>
+</blockquote>
+<p>而对于异或也有类似的结果: $k=a_1\wedge  \cdots \wedge a_n$</p>
+<blockquote>
+<p>若$k \neq 0$ 由引理知道, 可以减小某个$a_i$使得之后的异或和为0;<br>若$k=0$, 则任意改变都会导致异或和不为0.</p>
+</blockquote>
+<p>这样操作下去堆数一定在一直减小.<br>对于规则1: 由于空局面是负局面容易看出, 若异或和为0则先手负, 反之先手胜.<br>而对于规则2, 由于空局面是胜局面,而1局面是负局面, 这就有些尴尬了. 并且局面并不能像规则1一样进行局面分解, 因此十分麻烦.</p>
+<h4 id="规则2的感性判断"><a href="#规则2的感性判断" class="headerlink" title="规则2的感性判断"></a>规则2的感性判断</h4><ol>
+<li>去掉任意多的0和偶数个1并不会影响结果(是对的, 但是要分情况推敲一下)</li>
+<li>无法根据子局面的胜负来判断总局面的胜负.</li>
+<li>负局面的价值远远高于胜局面, $(1),(n,n&gt;1),(1,2n,2n+1)$, 奇数个1, 偶数个2是负局面(用数学归纳法容易证明)</li>
+<li>从小的开始枚举, 为被负局面包含的极小局面是胜局面, 被所有胜局面包围的是负局面, 这样可以一直进行下去直到得到我们的结果.</li>
+<li>前戏终于结束了, 要来真的了0.0(好害怕)</li>
 </ol>
-<p>由上述性质可知，$L$ 有唯一的极大可解理想。即为 $Rad L$,若 $Rad L =0$ 则称之为<strong>半单</strong>的，等价于 $L$ 无非零abelian理想(充分性显然，必要性是因为 $Rad L$ 可解，考虑最后一个非0项必然是abelian理想矛盾)。另外 我们称 $x \in End V$ 半单，若 $x$ 的极小多项式无重根。</p>
-<p>对于给定Lie代数 $L$，我们有理想降链<br>$L^0 = L,L^1=[L^0,L^0],\cdots,L^i=[L^{i-1},L^{i-1}],\cdots $。若存在 $n$ 使得 $L^{n} = 0$ 则称 $L$ 幂零(nilpotent)。</p>
+<h4 id="规则2的理性判断"><a href="#规则2的理性判断" class="headerlink" title="规则2的理性判断"></a>规则2的理性判断</h4><p>经过总时长8个小时左右的零碎时间思考, 最终给出下面结果:</p>
 <ol>
-<li>若$L$ 幂零，$L$ 的子代数和同态像幂零。</li>
-<li>若 $L/Z(L)$ 幂零。则 $L$ 幂零。</li>
-<li>若 $L$ 幂零且非0，则 $Z(L) \neq 0$。</li>
+<li>首先我们先剔除所有0和偶数个1得到新的局面至多有一个1. 如果为空, 则为胜局面.</li>
+<li>对于堆数$n=1$的情形, $a1=1$为负局面, 其它为胜局面.<br>对于堆数$n&gt;1$是若$a_1\wedge ⋯\wedge a_n=0$为负局面, 其它为胜局面.<br><strong>证明</strong>: 首先证明结论对$n=2$是成立, 即$a_1=a_2$(不可能同时为1)时是负局面, 因为$a_1=a_2=2$是负局面, 若$a_1=a_2&lt;k$是负局面, $a_1=a_2 = k$, 则下一步必然是$(a1,a2)=(m&lt;k,k)$ 为胜局面(若$m=0,1$ 时显然, 否则下一步$(a_1=a2)=(m,m)$为负局面). 因此结论对$n=2$成立. 现在若结论对于$n&lt;k$成立, 那么由引理若$a_1\wedge ⋯\wedge a_n=0$ 则下一步必然导致$a′_1 \wedge ⋯ \wedge a′_n \neq 0$. 若其中某个$a′_i=0$, 那么由归纳法必然导致结论成立. 那么后手就可以取走一些石子导致$a′′_1 \wedge ⋯\wedge a′′_n=0$. 另外一出现多于2个1直接剔除(不会改变异或和的值). 这样下去堆数必然减少, 由归纳法可知结论成立.</li>
 </ol>
-<p>显然由于 $L^{(i)} \subset L^i$ 因此幂零一定可解，但是反之则不尽然，例如 $\mathbb{gl}(V)$ 中对应的上三角矩阵全体构成的Lie代数。由Lie定理的推论知：<br>$L$ 可解的充要条件是 $[L,L]$ 幂零。</p>
-<h3 id="ad-nilpotent"><a href="#ad-nilpotent" class="headerlink" title="ad-nilpotent"></a>ad-nilpotent</h3><p>$L$ 是一个Lie代数，$x \in L$, 称 $x$ ad-nilpotent 是指 $ad_x$ 幂零。<br>易知若 $x$ 幂零，则 $ad_x$ 幂零，但是反之不尽然。然而我们有Engel 定理：<br>$L$幂零当且仅当$ad L$ 幂零。</p>
-<h3 id="一些重要结果"><a href="#一些重要结果" class="headerlink" title="一些重要结果"></a>一些重要结果</h3><p>这里罗列一些定理实际上就是搞清楚 Lie 代数中的一些问题和一些好的性质。</p>
-<p><strong>THM1</strong>. 设 $L$ 是 $\mathbb{gl}(V)$ 的子代数($L$ 中的元素可理解为矩阵)，$V$ 是有限维的，若 $L$ 中元素都幂零，则存在 $v \in V$ 使得 $L(v) = 0$.<br>上面结果是讲，$L$中元素都幂零，则 $L$ 有公共的$0$ 特征向量。证明是很有技巧性的。构造一个 codemension 为1的子代数，并证明它是 $L$ 不变子空间。然后数学归纳法完成证明。上面定理还说明我们可以取定一组基使 $L$ 同时严格上三角。</p>
-<p><strong>THM2</strong>. 若 $L$ 幂零，$K$ 是 $L$ 的非零理想,则 $K \cap Z(L) \neq 0$</p>
-<p><strong>THM3</strong>. 设 $L$ 是 $\mathbb{gl}(V)$ 可解子代数，$V$ 是有限维的，则存在 $L$ 存在公共特征向量。</p>
-<p>上面定理还说明我们可以取定一组基使得 $L$ 同时上三角。</p>
-<p><strong>THM4</strong>. 若 $x \in EndV$，则存在唯一的分解 $x = x_s+x_n$，其中 $x_s$ 是半单的， $x_n$ 是幂零的，且 $x_s,x_n$ 都能表示成 $x$ 的无常数项的多项式。将其称之为 Jordan-Chevally 分解。</p>
-<p><strong>THM5</strong>. 若 $x$ 半单，则 $ad_x$ 半单。若 $x=x_s+x_n$是Jordan-Chevally 分解，则 $ad_x = ad_{x_s} + ad_ {x_n}$  也是。$Der A$ 包含其元素的 半单部分和幂零部分。</p>
-<p><strong>THM6</strong>. $A \subset B \subset End V $，令 $M = \lbrace x \in \mathbb{gl}(V) \;|\; [x,B] \subset A\rbrace$。若 $x \in M$ 满足，$Tr(xy)=0$ 对任意 $y\in M$ 成立，则 $x$ 幂零。</p>
-<p><strong>THM7</strong> $L \subset \mathbb{gl}(V)$，$V$ 是有限维的, 则 对任意 $x \in [L,L],\;y \in L$ 有 $Tr(xy)=0$ 当且仅当 $L$ 可解。</p>
-<p><strong>THM8</strong> 设 $L$ 是Lie代数，对任意 $x \in [L,L],\;y \in L$ 有 $Tr(ad_x ad_y)=0$ 则 $L$ 可解。</p>
-<p><strong>THM9</strong> 若 $L$ 是半单的，则 $L$ 可唯一写成单子理想的直和且$L=[L,L],Z(L)=0$ 且 $L$ 的理想和同态像都是半单的。</p>
-<p><strong>THM10</strong> $ad L$ 是 $Der L$ 的理想，且若 $L$ 是半单的，则 $ad L = Der L$。</p>
-<h3 id="To-be-continue"><a href="#To-be-continue" class="headerlink" title="To be continue"></a>To be continue</h3>
+<p>例如1∧3∧5∧7=01∧3∧5∧7=0 从而可以判断这是一个负局面.(可以简单试试这个策略玩一玩这个游戏)</p>
+<blockquote>
+<p>感谢张一飞的论文, 感谢FDU高数杭老师提供题目, 感谢蔡学弟把问题分享给我。感谢网友批评指正。</p>
+</blockquote>
+
       
     </div>
 
@@ -458,7 +466,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Math/" rel="tag"># Math</a>
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -471,8 +479,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/jordanDecompositionOfMatrix/" rel="next" title="矩阵的Jordan分解">
-                <i class="fa fa-chevron-left"></i> 矩阵的Jordan分解
+              <a href="/commutativeAlgebraByMatsumura/" rel="next" title="Matsumura《Commutative Algebra》读书笔记">
+                <i class="fa fa-chevron-left"></i> Matsumura《Commutative Algebra》读书笔记
               </a>
             
           </div>
@@ -481,8 +489,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/zariskiTopologyOfRing/" rel="prev" title="环的Zariski拓扑(素谱)">
-                环的Zariski拓扑(素谱) <i class="fa fa-chevron-right"></i>
+              <a href="/pythonLearning/" rel="prev" title="python入门">
+                python入门 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
